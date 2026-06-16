@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>متجر البطاقات مع محرر السحب</title>
+<title>متجر 100 بطاقة مع محرر السحب</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#0b1020;color:#fff}
@@ -31,18 +31,18 @@ header{position:sticky;top:0;z-index:50;background:#10182b;border-bottom:1px sol
 .filters{display:flex;gap:8px;flex-wrap:wrap}
 .filter{border:1px solid rgba(255,255,255,.14);background:#121d35;color:#fff;padding:11px 14px;border-radius:999px;cursor:pointer;font-weight:900}
 .filter.active{background:linear-gradient(135deg,#d8a741,#ffd77a);color:#111;border:none}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:36px}
-.card{background:#111a30;border:1px solid rgba(255,255,255,.12);border-radius:24px;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.18)}
-.thumb-wrap{background:#0d1528;padding:12px;position:relative}
-.thumb-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#fff;border-radius:18px;display:block}
-.badge{position:absolute;top:22px;right:22px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.18);padding:7px 10px;border-radius:999px;font-size:12px;font-weight:900}
-.card-body{padding:15px}
-.card h3{margin:0 0 8px;font-size:20px}
-.card p{margin:0 0 12px;color:#c6d0e6;line-height:1.7;font-size:14px;min-height:72px}
-.meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
-.price{color:#ffd77a;font-size:21px;font-weight:900}
-.small{font-size:12px;color:#aab7d5;border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px}
-.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:36px}
+.card{background:#111a30;border:1px solid rgba(255,255,255,.12);border-radius:22px;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.thumb-wrap{background:#0d1528;padding:10px;position:relative}
+.thumb-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#fff;border-radius:16px;display:block}
+.badge{position:absolute;top:18px;right:18px;background:rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.18);padding:6px 9px;border-radius:999px;font-size:11px;font-weight:900}
+.card-body{padding:13px}
+.card h3{margin:0 0 8px;font-size:17px;line-height:1.4}
+.card p{margin:0 0 12px;color:#c6d0e6;line-height:1.6;font-size:12px;min-height:58px}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.price{color:#ffd77a;font-size:18px;font-weight:900}
+.small{font-size:11px;color:#aab7d5;border:1px solid rgba(255,255,255,.12);padding:5px 8px;border-radius:999px}
+.card-actions{display:grid;grid-template-columns:1fr;gap:8px}
 .section-title{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-top:18px;margin-bottom:10px}
 .section-title h2{margin:0}
 .section-title p{margin:6px 0 0;color:#c5cfe6}
@@ -58,36 +58,16 @@ header{position:sticky;top:0;z-index:50;background:#10182b;border-bottom:1px sol
 .preview-pane{background:#0d1528;padding:10px;border-radius:20px;position:relative}
 .preview-pane canvas{width:100%;display:block;border-radius:14px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.25);touch-action:none;cursor:move}
 .box{background:#0f1830;border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:16px}
-.box h3{margin:0 0 12px}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .full{grid-column:1/-1}
 label{display:block;margin-bottom:6px;color:#c4cfe8;font-weight:900;font-size:13px}
 input,select,textarea{width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:#17233f;color:#fff;outline:none;font-family:inherit}
 input[type=color]{height:46px;padding:4px}
-textarea{min-height:92px;resize:vertical}
 .help{background:#17233f;border:1px dashed rgba(255,255,255,.18);padding:12px;border-radius:16px;color:#c9d5f2;line-height:1.7;font-size:13px;margin-top:12px}
-.admin{display:none;margin:10px 0 40px;background:#111a30;border:1px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden}
-.admin.show{display:block}
-.admin-head{padding:16px 18px;background:#182442;border-bottom:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.admin-body{padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.admin-list{display:grid;gap:10px;max-height:560px;overflow:auto}
-.item{display:grid;grid-template-columns:78px 1fr auto;gap:10px;align-items:center;background:#16213a;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:8px}
-.item img{width:78px;height:100px;object-fit:cover;border-radius:12px;background:#fff}
-.item b{display:block;margin-bottom:4px}
-.item small{color:#b8c4e0}
 footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(255,255,255,.10)}
-@media (max-width:960px){
-  .hero-box,.editor-grid,.admin-body{grid-template-columns:1fr}
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .toolbar{grid-template-columns:1fr}
-}
-@media (max-width:640px){
-  .grid{grid-template-columns:1fr}
-  .form-grid{grid-template-columns:1fr}
-  .card-actions{grid-template-columns:1fr}
-  .item{grid-template-columns:1fr}
-  .item img{width:100%;height:auto;aspect-ratio:3/4}
-}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.hero-box,.editor-grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}}
+@media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -95,15 +75,14 @@ footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(
 <header>
   <div class="container nav">
     <div class="brand">
-      <div class="logo">✦</div>
+      <div class="logo">100</div>
       <div>
-        متجر البطاقات مع محرر السحب
+        متجر 100 بطاقة وقالب
         <small>سحب الاسم والشعار والصورة وQR + تصدير للطباعة</small>
       </div>
     </div>
     <div class="actions">
-      <button class="btn" onclick="scrollToSection('products')">القوالب</button>
-      <button class="btn gold" onclick="openAdminLogin()">لوحة المدير</button>
+      <button class="btn gold" onclick="scrollToSection('products')">عرض 100 بطاقة</button>
     </div>
   </div>
 </header>
@@ -112,29 +91,23 @@ footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(
   <section class="hero">
     <div class="hero-box">
       <div>
-        <h1>محرر كامل <span>بالسحب المباشر</span></h1>
+        <h1>تمت إضافة <span>100 بطاقة</span></h1>
         <p>
-          اسحب الاسم، المنصب، الهاتف، الشعار، الصورة الشخصية وQR مباشرة فوق البطاقة.
-          يمكنك تغيير الحجم وتصدير البطاقة النهائية PNG أو JPG جاهزة للطباعة.
+          هذه النسخة تحتوي على 100 بطاقة وقالب داخل المتجر.
+          كل بطاقة يمكن فتحها في محرر السحب لتعديل الاسم والمنصب والهاتف والشعار والصورة الشخصية وQR.
         </p>
-        <div class="actions">
-          <button class="btn gold" onclick="scrollToSection('products')">عرض القوالب</button>
-          <button class="btn blue" onclick="restoreDefaults()">استرجاع البطاقات الأصلية</button>
-        </div>
       </div>
-      <div class="hero-preview">
-        <img id="heroImage" alt="معاينة البطاقة">
-      </div>
+      <div class="hero-preview"><img id="heroImage" alt="معاينة"></div>
     </div>
   </section>
 
   <section id="products">
     <div class="section-title">
       <div>
-        <h2>البطاقات داخل المتجر</h2>
-        <p>اختر بطاقة ثم اضغط <b>محرر السحب</b> لتعديلها مباشرة.</p>
+        <h2>كل البطاقات</h2>
+        <p>المجموع: <b id="totalCount">100</b> بطاقة / قالب.</p>
       </div>
-      <button class="btn green" onclick="restoreDefaults()">استرجاع الافتراضي</button>
+      <button class="btn blue" onclick="restoreDefaults()">استرجاع الافتراضي</button>
     </div>
 
     <div class="toolbar">
@@ -142,80 +115,21 @@ footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(
       <div class="filters">
         <button class="filter active" onclick="setFilter('all', this)">الكل</button>
         <button class="filter" onclick="setFilter('certificate', this)">إفادات</button>
-        <button class="filter" onclick="setFilter('idcard', this)">بطاقات تعريف</button>
+        <button class="filter" onclick="setFilter('idcard', this)">تعريف</button>
         <button class="filter" onclick="setFilter('membership', this)">عضوية</button>
-        <button class="filter" onclick="setFilter('employee', this)">بطاقات موظفين</button>
+        <button class="filter" onclick="setFilter('employee', this)">موظفين</button>
+        <button class="filter" onclick="setFilter('business', this)">عمل</button>
+        <button class="filter" onclick="setFilter('thanks', this)">شكر</button>
+        <button class="filter" onclick="setFilter('invitation', this)">دعوات</button>
       </div>
     </div>
 
     <div id="productGrid" class="grid"></div>
   </section>
-
-  <section id="adminPanel" class="admin">
-    <div class="admin-head">
-      <div>
-        <strong>لوحة المدير</strong><br>
-        <small style="color:#c6d1eb">إضافة / تعديل / حذف البطاقات</small>
-      </div>
-      <div class="actions">
-        <button class="btn blue" onclick="restoreDefaults()">استرجاع الافتراضي</button>
-        <button class="btn red" onclick="logoutAdmin()">خروج</button>
-      </div>
-    </div>
-
-    <div class="admin-body">
-      <div class="box">
-        <h3>إضافة أو تعديل بطاقة</h3>
-        <form id="productForm" onsubmit="saveProduct(event)">
-          <input type="hidden" id="productId">
-          <div class="form-grid">
-            <div>
-              <label>اسم البطاقة</label>
-              <input id="productTitle" required>
-            </div>
-            <div>
-              <label>السعر</label>
-              <input id="productPrice" required placeholder="مثال: 220 MRU">
-            </div>
-            <div>
-              <label>القسم</label>
-              <select id="productCategory" required>
-                <option value="certificate">إفادات</option>
-                <option value="idcard">بطاقات تعريف</option>
-                <option value="membership">عضوية</option>
-                <option value="employee">بطاقات موظفين</option>
-              </select>
-            </div>
-            <div>
-              <label>صورة البطاقة من الجهاز</label>
-              <input id="productImageFile" type="file" accept="image/*">
-            </div>
-            <div class="full">
-              <label>وصف البطاقة</label>
-              <textarea id="productDescription" required></textarea>
-            </div>
-            <div class="full">
-              <label>أو رابط صورة / Base64</label>
-              <textarea id="productImageUrl" placeholder="يمكنك لصق رابط الصورة أو data:image..."></textarea>
-            </div>
-            <div class="full">
-              <button class="btn gold" type="submit">حفظ البطاقة</button>
-              <button class="btn" type="button" onclick="resetForm()">تفريغ</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="box">
-        <h3>البطاقات الحالية</h3>
-        <div id="adminList" class="admin-list"></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
-  <div class="container">متجر البطاقات مع محرر السحب — نسخة ZIP صحيحة</div>
+  <div class="container">متجر 100 بطاقة — نسخة ZIP مع مجلد assets</div>
 </footer>
 
 <div id="editorModal" class="modal">
@@ -228,9 +142,7 @@ footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(
       <div class="editor-grid">
         <div class="preview-pane">
           <canvas id="editorCanvas" width="1200" height="1600"></canvas>
-          <div class="help">
-            اسحب العناصر مباشرة فوق البطاقة. اختر العنصر من القائمة أو اضغط عليه في البطاقة ثم اسحبه.
-          </div>
+          <div class="help">اسحب العناصر مباشرة فوق البطاقة. اختر العنصر من القائمة أو اضغط عليه ثم اسحبه.</div>
         </div>
 
         <div class="box">
@@ -248,74 +160,21 @@ footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(
                 <option value="qr">QR</option>
               </select>
             </div>
-
-            <div class="full">
-              <label>الاسم</label>
-              <input id="editName" value="الاسم الكامل" oninput="renderEditorCanvas()">
-            </div>
-            <div>
-              <label>المنصب</label>
-              <input id="editPosition" value="المنصب" oninput="renderEditorCanvas()">
-            </div>
-            <div>
-              <label>رقم الهاتف</label>
-              <input id="editPhone" value="+222 00000000" oninput="renderEditorCanvas()">
-            </div>
-            <div class="full">
-              <label>اسم المؤسسة</label>
-              <input id="editCompany" value="اسم المؤسسة" oninput="renderEditorCanvas()">
-            </div>
-
-            <div>
-              <label>حجم الاسم</label>
-              <input id="nameSize" type="range" min="18" max="120" value="52" oninput="renderEditorCanvas()">
-            </div>
-            <div>
-              <label>حجم المنصب</label>
-              <input id="positionSize" type="range" min="16" max="90" value="34" oninput="renderEditorCanvas()">
-            </div>
-            <div>
-              <label>حجم الهاتف</label>
-              <input id="phoneSize" type="range" min="14" max="80" value="28" oninput="renderEditorCanvas()">
-            </div>
-            <div>
-              <label>لون النص</label>
-              <input id="textColor" type="color" value="#111111" oninput="renderEditorCanvas()">
-            </div>
-
-            <div class="full">
-              <label>الشعار من الجهاز</label>
-              <input id="editLogoFile" type="file" accept="image/*" onchange="handleLogoUpload(event)">
-            </div>
-            <div>
-              <label>حجم الشعار</label>
-              <input id="logoSize" type="range" min="40" max="400" value="140" oninput="resizeElement('logo', this.value)">
-            </div>
-
-            <div class="full">
-              <label>الصورة الشخصية من الجهاز</label>
-              <input id="editPhotoFile" type="file" accept="image/*" onchange="handlePhotoUpload(event)">
-            </div>
-            <div>
-              <label>حجم الصورة الشخصية</label>
-              <input id="photoSize" type="range" min="80" max="700" value="320" oninput="resizeElement('photo', this.value)">
-            </div>
-
-            <div class="full">
-              <label>نص QR / رابط QR</label>
-              <input id="qrText" value="https://wa.me/22200000000" oninput="renderEditorCanvas()">
-            </div>
-            <div>
-              <label>حجم QR</label>
-              <input id="qrSize" type="range" min="70" max="360" value="140" oninput="resizeElement('qr', this.value)">
-            </div>
-            <div>
-              <label>إظهار QR</label>
-              <select id="showQr" onchange="renderEditorCanvas()">
-                <option value="yes">نعم</option>
-                <option value="no">لا</option>
-              </select>
-            </div>
+            <div class="full"><label>الاسم</label><input id="editName" value="الاسم الكامل" oninput="renderEditorCanvas()"></div>
+            <div><label>المنصب</label><input id="editPosition" value="المنصب" oninput="renderEditorCanvas()"></div>
+            <div><label>رقم الهاتف</label><input id="editPhone" value="+222 00000000" oninput="renderEditorCanvas()"></div>
+            <div class="full"><label>اسم المؤسسة</label><input id="editCompany" value="اسم المؤسسة" oninput="renderEditorCanvas()"></div>
+            <div><label>حجم الاسم</label><input id="nameSize" type="range" min="18" max="120" value="52" oninput="renderEditorCanvas()"></div>
+            <div><label>حجم المنصب</label><input id="positionSize" type="range" min="16" max="90" value="34" oninput="renderEditorCanvas()"></div>
+            <div><label>حجم الهاتف</label><input id="phoneSize" type="range" min="14" max="80" value="28" oninput="renderEditorCanvas()"></div>
+            <div><label>لون النص</label><input id="textColor" type="color" value="#111111" oninput="renderEditorCanvas()"></div>
+            <div class="full"><label>الشعار من الجهاز</label><input id="editLogoFile" type="file" accept="image/*" onchange="handleLogoUpload(event)"></div>
+            <div><label>حجم الشعار</label><input id="logoSize" type="range" min="40" max="400" value="140" oninput="resizeElement('logo', this.value)"></div>
+            <div class="full"><label>الصورة الشخصية من الجهاز</label><input id="editPhotoFile" type="file" accept="image/*" onchange="handlePhotoUpload(event)"></div>
+            <div><label>حجم الصورة</label><input id="photoSize" type="range" min="80" max="700" value="320" oninput="resizeElement('photo', this.value)"></div>
+            <div class="full"><label>نص QR / رابط QR</label><input id="qrText" value="https://wa.me/22200000000" oninput="renderEditorCanvas()"></div>
+            <div><label>حجم QR</label><input id="qrSize" type="range" min="70" max="360" value="140" oninput="resizeElement('qr', this.value)"></div>
+            <div><label>إظهار QR</label><select id="showQr" onchange="renderEditorCanvas()"><option value="yes">نعم</option><option value="no">لا</option></select></div>
           </div>
 
           <div class="actions" style="margin-top:16px">
@@ -324,34 +183,6 @@ footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(
             <button class="btn green" onclick="saveLayout()">حفظ أماكن العناصر</button>
             <button class="btn" onclick="resetCurrentLayout()">إرجاع أماكن القالب</button>
           </div>
-
-          <div class="help">
-            ملاحظة: QR يظهر داخل البطاقة ويتحرك ويتغير حجمه. للتشغيل الصحيح احتفظ بملف index.html داخل نفس المجلد مع assets.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="loginModal" class="modal">
-  <div class="modal-box" style="max-width:460px">
-    <div class="modal-head">
-      <h3>تسجيل دخول المدير</h3>
-      <button class="close" onclick="closeModal('loginModal')">×</button>
-    </div>
-    <div class="modal-content">
-      <div class="form-grid">
-        <div class="full">
-          <label>الإيميل</label>
-          <input id="adminEmail" value="Aichetou@gmail.com">
-        </div>
-        <div class="full">
-          <label>الكود</label>
-          <input id="adminCode" type="password" value="12345">
-        </div>
-        <div class="full">
-          <button class="btn gold" onclick="loginAdmin()">دخول</button>
         </div>
       </div>
     </div>
@@ -361,17 +192,17 @@ footer{padding:22px 0;text-align:center;color:#b8c3dc;border-top:1px solid rgba(
 <script>
 const DEFAULT_PRODUCTS = [
   {
-    "id": "p1",
-    "title": "شهادة مشاركة عربية",
+    "id": "p001",
+    "title": "شهادة مشاركة رقم 001",
     "category": "certificate",
-    "price": "250 MRU",
-    "description": "قالب إفادة / شهادة مشاركة باللغة العربية بتصميم أزرق وذهبي.",
-    "image": "assets/certificate_arabic.png",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_001.jpg",
     "layout": {
       "name": {
         "x": 0.5,
-        "y": 0.36,
-        "size": 58
+        "y": 0.38,
+        "size": 56
       },
       "position": {
         "x": 0.5,
@@ -379,24 +210,24 @@ const DEFAULT_PRODUCTS = [
         "size": 34
       },
       "phone": {
-        "x": 0.18,
-        "y": 0.86,
-        "size": 28
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
       },
       "company": {
         "x": 0.5,
-        "y": 0.08,
+        "y": 0.1,
         "size": 30
       },
       "logo": {
         "x": 0.08,
-        "y": 0.17,
-        "w": 0.14,
-        "h": 0.14
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
       },
       "photo": {
-        "x": 0.74,
-        "y": 0.17,
+        "x": 0.75,
+        "y": 0.16,
         "w": 0.14,
         "h": 0.14
       },
@@ -409,95 +240,47 @@ const DEFAULT_PRODUCTS = [
     }
   },
   {
-    "id": "p2",
-    "title": "بطاقة تعريف مؤسسة جامعية",
+    "id": "p002",
+    "title": "بطاقة تعريف جامعية رقم 002",
     "category": "idcard",
     "price": "220 MRU",
-    "description": "بطاقة تعريف مؤسسة بتصميم بنفسجي وبرتقالي مع مكان للشعار والصورة.",
-    "image": "assets/id_institution_arabic.png",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_002.jpg",
     "layout": {
       "name": {
-        "x": 0.56,
-        "y": 0.67,
+        "x": 0.5,
+        "y": 0.6,
         "size": 42
       },
       "position": {
-        "x": 0.56,
-        "y": 0.75,
+        "x": 0.5,
+        "y": 0.68,
         "size": 30
       },
       "phone": {
-        "x": 0.56,
-        "y": 0.83,
-        "size": 28
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
       },
       "company": {
         "x": 0.5,
-        "y": 0.08,
-        "size": 28
+        "y": 0.1,
+        "size": 30
       },
       "logo": {
-        "x": 0.78,
-        "y": 0.18,
-        "w": 0.12,
-        "h": 0.1
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
       },
       "photo": {
-        "x": 0.31,
-        "y": 0.3,
-        "w": 0.38,
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
         "h": 0.28
       },
       "qr": {
         "x": 0.08,
-        "y": 0.77,
-        "w": 0.12,
-        "h": 0.12
-      }
-    }
-  },
-  {
-    "id": "p3",
-    "title": "بطاقة عضوية مؤسسة",
-    "category": "membership",
-    "price": "200 MRU",
-    "description": "بطاقة عضوية أو تعريف للمنظمات والجمعيات مع مساحة للصورة.",
-    "image": "assets/membership_card.png",
-    "layout": {
-      "name": {
-        "x": 0.5,
-        "y": 0.82,
-        "size": 54
-      },
-      "position": {
-        "x": 0.5,
-        "y": 0.89,
-        "size": 36
-      },
-      "phone": {
-        "x": 0.5,
-        "y": 0.94,
-        "size": 24
-      },
-      "company": {
-        "x": 0.5,
-        "y": 0.18,
-        "size": 28
-      },
-      "logo": {
-        "x": 0.43,
-        "y": 0.03,
-        "w": 0.14,
-        "h": 0.1
-      },
-      "photo": {
-        "x": 0.24,
-        "y": 0.3,
-        "w": 0.52,
-        "h": 0.4
-      },
-      "qr": {
-        "x": 0.06,
         "y": 0.78,
         "w": 0.12,
         "h": 0.12
@@ -505,151 +288,4710 @@ const DEFAULT_PRODUCTS = [
     }
   },
   {
-    "id": "p4",
-    "title": "بطاقة موظف مدير المكتب",
-    "category": "employee",
-    "price": "230 MRU",
-    "description": "بطاقة موظف احترافية زرقاء مناسبة للشركات والمؤسسات.",
-    "image": "assets/employee_blue_card.png",
+    "id": "p003",
+    "title": "بطاقة عضو نادي رقم 003",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_003.jpg",
     "layout": {
       "name": {
-        "x": 0.54,
-        "y": 0.58,
+        "x": 0.5,
+        "y": 0.6,
         "size": 42
       },
       "position": {
-        "x": 0.54,
-        "y": 0.67,
-        "size": 34
-      },
-      "phone": {
-        "x": 0.54,
-        "y": 0.79,
-        "size": 32
-      },
-      "company": {
         "x": 0.5,
-        "y": 0.2,
-        "size": 34
-      },
-      "logo": {
-        "x": 0.5,
-        "y": 0.08,
-        "w": 0.18,
-        "h": 0.12
-      },
-      "photo": {
-        "x": 0.25,
-        "y": 0.27,
-        "w": 0.5,
-        "h": 0.34
-      },
-      "qr": {
-        "x": 0.08,
-        "y": 0.82,
-        "w": 0.12,
-        "h": 0.12
-      }
-    }
-  },
-  {
-    "id": "p5",
-    "title": "بطاقة شركة مع توقيع",
-    "category": "employee",
-    "price": "210 MRU",
-    "description": "بطاقة شركة نظيفة مع حقول اسم الموظف والمنصب وتاريخ الانضمام.",
-    "image": "assets/corporate_card.png",
-    "layout": {
-      "name": {
-        "x": 0.66,
-        "y": 0.55,
-        "size": 40
-      },
-      "position": {
-        "x": 0.67,
-        "y": 0.64,
+        "y": 0.68,
         "size": 30
       },
       "phone": {
-        "x": 0.6,
-        "y": 0.79,
-        "size": 28
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
       },
       "company": {
-        "x": 0.5,
-        "y": 0.16,
-        "size": 36
-      },
-      "logo": {
         "x": 0.5,
         "y": 0.1,
-        "w": 0.12,
-        "h": 0.08
-      },
-      "photo": {
-        "x": 0.32,
-        "y": 0.28,
-        "w": 0.36,
-        "h": 0.27
-      },
-      "qr": {
-        "x": 0.08,
-        "y": 0.75,
-        "w": 0.12,
-        "h": 0.12
-      }
-    }
-  },
-  {
-    "id": "p6",
-    "title": "بطاقة تعريف موظف حديثة",
-    "category": "employee",
-    "price": "220 MRU",
-    "description": "بطاقة تعريف عربية حديثة مع حقول الهوية والبريد والهاتف.",
-    "image": "assets/modern_employee_card.png",
-    "layout": {
-      "name": {
-        "x": 0.53,
-        "y": 0.55,
-        "size": 48
-      },
-      "position": {
-        "x": 0.53,
-        "y": 0.63,
-        "size": 30
-      },
-      "phone": {
-        "x": 0.53,
-        "y": 0.81,
-        "size": 28
-      },
-      "company": {
-        "x": 0.28,
-        "y": 0.13,
         "size": 30
       },
       "logo": {
-        "x": 0.28,
+        "x": 0.08,
         "y": 0.08,
-        "w": 0.18,
-        "h": 0.14
+        "w": 0.15,
+        "h": 0.12
       },
       "photo": {
         "x": 0.32,
-        "y": 0.24,
+        "y": 0.25,
         "w": 0.36,
         "h": 0.28
       },
       "qr": {
         "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p004",
+    "title": "بطاقة فريق رقم 004",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_004.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p005",
+    "title": "بطاقة مصمم رقم 005",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_005.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
         "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p006",
+    "title": "بطاقة شكر رسمية رقم 006",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_006.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p007",
+    "title": "دعوة عشاء رقم 007",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_007.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p008",
+    "title": "شهادة تقدير رقم 008",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_008.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p009",
+    "title": "بطاقة تعريف مدرسية رقم 009",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_009.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p010",
+    "title": "بطاقة منتسب رقم 010",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_010.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p011",
+    "title": "بطاقة هوية عمل رقم 011",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_011.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p012",
+    "title": "بطاقة عمل شخصية رقم 012",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_012.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p013",
+    "title": "بطاقة شكر رقم 013",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_013.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p014",
+    "title": "دعوة خطوبة رقم 014",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_014.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p015",
+    "title": "شهادة شكر رقم 015",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_015.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p016",
+    "title": "بطاقة تعريف إداري رقم 016",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_016.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p017",
+    "title": "بطاقة عضوية VIP رقم 017",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_017.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p018",
+    "title": "بطاقة موظف شركة رقم 018",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_018.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p019",
+    "title": "بطاقة مطعم رقم 019",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_019.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p020",
+    "title": "بطاقة شكر فاخرة رقم 020",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_020.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p021",
+    "title": "دعوة مولود رقم 021",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_021.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p022",
+    "title": "إفادة تطوع رقم 022",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_022.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p023",
+    "title": "بطاقة تعريف موظف رقم 023",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_023.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p024",
+    "title": "بطاقة عضوية مركز رقم 024",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_024.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p025",
+    "title": "بطاقة موظف رقم 025",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_025.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p026",
+    "title": "بطاقة عمل فاخرة رقم 026",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_026.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p027",
+    "title": "بطاقة شكر للعميل رقم 027",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_027.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p028",
+    "title": "دعوة عيد ميلاد رقم 028",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_028.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p029",
+    "title": "إفادة مدرسية رقم 029",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_029.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p030",
+    "title": "بطاقة تعريف مركز رقم 030",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_030.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p031",
+    "title": "بطاقة عضوية ذهبية رقم 031",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_031.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p032",
+    "title": "بطاقة موظف إداري رقم 032",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_032.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p033",
+    "title": "بطاقة أعمال ذهبية رقم 033",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_033.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p034",
+    "title": "بطاقة تقدير رقم 034",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_034.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p035",
+    "title": "دعوة رسمية رقم 035",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_035.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p036",
+    "title": "إفادة نجاح رقم 036",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_036.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p037",
+    "title": "بطاقة تعريف مؤسسة رقم 037",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_037.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p038",
+    "title": "بطاقة عضو جمعية رقم 038",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_038.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p039",
+    "title": "بطاقة عامل رقم 039",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_039.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p040",
+    "title": "بطاقة خدمات رقمية رقم 040",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_040.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p041",
+    "title": "بطاقة شكر للضيوف رقم 041",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_041.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p042",
+    "title": "دعوة حفل رقم 042",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_042.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p043",
+    "title": "إفادة رسمية رقم 043",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_043.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p044",
+    "title": "بطاقة تعريف حديثة رقم 044",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_044.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p045",
+    "title": "بطاقة انتماء رقم 045",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_045.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p046",
+    "title": "بطاقة موظف خدمات رقم 046",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_046.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p047",
+    "title": "بطاقة أعمال حديثة رقم 047",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_047.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p048",
+    "title": "رسالة شكر رقم 048",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_048.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p049",
+    "title": "دعوة زواج رقم 049",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_049.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p050",
+    "title": "إفادة خبرة رقم 050",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_050.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p051",
+    "title": "بطاقة تعريف طالب رقم 051",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_051.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p052",
+    "title": "بطاقة عضو مؤسسة رقم 052",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_052.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p053",
+    "title": "بطاقة مسؤول مكتب رقم 053",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_053.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p054",
+    "title": "بطاقة صالون تجميل رقم 054",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_054.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p055",
+    "title": "بطاقة شكر ذهبية رقم 055",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_055.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p056",
+    "title": "دعوة مناسبة رقم 056",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_056.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p057",
+    "title": "شهادة إتمام تدريب رقم 057",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_057.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p058",
+    "title": "بطاقة تعريف منظمة رقم 058",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_058.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p059",
+    "title": "بطاقة عضوية عائلية رقم 059",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_059.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p060",
+    "title": "بطاقة موظف حديثة رقم 060",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_060.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p061",
+    "title": "بطاقة عمل رقم 061",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_061.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p062",
+    "title": "بطاقة شكر وتقدير رقم 062",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_062.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p063",
+    "title": "دعوة تخرج رقم 063",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_063.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p064",
+    "title": "إفادة تدريب رقم 064",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_064.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p065",
+    "title": "بطاقة تعريف جمعية رقم 065",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_065.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p066",
+    "title": "بطاقة عضوية سنوية رقم 066",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_066.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p067",
+    "title": "بطاقة موظف تقنية رقم 067",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_067.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p068",
+    "title": "بطاقة مكتب رقم 068",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_068.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p069",
+    "title": "بطاقة امتنان رقم 069",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_069.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p070",
+    "title": "دعوة واتساب رقم 070",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_070.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p071",
+    "title": "شهادة حضور دورة رقم 071",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_071.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p072",
+    "title": "بطاقة تعريف عضو رقم 072",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_072.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p073",
+    "title": "بطاقة عضوية رقم 073",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_073.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p074",
+    "title": "بطاقة مدير رقم 074",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_074.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p075",
+    "title": "بطاقة محل تجاري رقم 075",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_075.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p076",
+    "title": "بطاقة شكر للمعلم رقم 076",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_076.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p077",
+    "title": "دعوة افتتاح محل رقم 077",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_077.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p078",
+    "title": "إفادة حضور رقم 078",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_078.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p079",
+    "title": "بطاقة تعريف رسمية رقم 079",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_079.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p080",
+    "title": "بطاقة عضوية رسمية رقم 080",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_080.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p081",
+    "title": "بطاقة موظف مبيعات رقم 081",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_081.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p082",
+    "title": "بطاقة أعمال زرقاء رقم 082",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_082.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p083",
+    "title": "بطاقة شكر بسيطة رقم 083",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_083.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p084",
+    "title": "دعوة إلكترونية رقم 084",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_084.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p085",
+    "title": "إفادة إنجاز رقم 085",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_085.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p086",
+    "title": "بطاقة تعريف جامعية رقم 086",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_086.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p087",
+    "title": "بطاقة عضو نادي رقم 087",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_087.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p088",
+    "title": "بطاقة فريق رقم 088",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_088.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p089",
+    "title": "بطاقة مصمم رقم 089",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_089.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p090",
+    "title": "بطاقة شكر رسمية رقم 090",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_090.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p091",
+    "title": "دعوة عشاء رقم 091",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_091.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p092",
+    "title": "إفادة عمل رقم 092",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_092.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p093",
+    "title": "بطاقة تعريف مدرسية رقم 093",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_093.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p094",
+    "title": "بطاقة منتسب رقم 094",
+    "category": "membership",
+    "price": "240 MRU",
+    "description": "قالب بطاقة عضوية قابل لتعديل الاسم والرقم وQR.",
+    "image": "assets/template_094.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p095",
+    "title": "بطاقة هوية عمل رقم 095",
+    "category": "employee",
+    "price": "260 MRU",
+    "description": "قالب بطاقة موظف جاهز لتعديل الاسم والمنصب والهاتف.",
+    "image": "assets/template_095.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p096",
+    "title": "بطاقة عمل شخصية رقم 096",
+    "category": "business",
+    "price": "280 MRU",
+    "description": "قالب بطاقة عمل احترافي قابل لإضافة الشعار وQR.",
+    "image": "assets/template_096.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p097",
+    "title": "بطاقة شكر رقم 097",
+    "category": "thanks",
+    "price": "300 MRU",
+    "description": "قالب بطاقة شكر وتقدير جاهز للتعديل والطباعة.",
+    "image": "assets/template_097.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p098",
+    "title": "دعوة خطوبة رقم 098",
+    "category": "invitation",
+    "price": "180 MRU",
+    "description": "قالب دعوة مناسبات قابل لتعديل الاسم والمكان والتاريخ.",
+    "image": "assets/template_098.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.55,
+        "size": 48
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.64,
+        "size": 32
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.76,
+        "size": 28
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
+        "w": 0.12,
+        "h": 0.12
+      }
+    }
+  },
+  {
+    "id": "p099",
+    "title": "إفادة مشاركة رقم 099",
+    "category": "certificate",
+    "price": "200 MRU",
+    "description": "قالب إفادة أو شهادة باللغة العربية قابل للتعديل والسحب والطباعة.",
+    "image": "assets/template_099.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.38,
+        "size": 56
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.5,
+        "size": 34
+      },
+      "phone": {
+        "x": 0.2,
+        "y": 0.85,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.75,
+        "y": 0.16,
+        "w": 0.14,
+        "h": 0.14
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.72,
+        "w": 0.11,
+        "h": 0.11
+      }
+    }
+  },
+  {
+    "id": "p100",
+    "title": "بطاقة تعريف إداري رقم 100",
+    "category": "idcard",
+    "price": "220 MRU",
+    "description": "قالب بطاقة تعريف رسمي قابل لإضافة الاسم والصورة والشعار.",
+    "image": "assets/template_100.jpg",
+    "layout": {
+      "name": {
+        "x": 0.5,
+        "y": 0.6,
+        "size": 42
+      },
+      "position": {
+        "x": 0.5,
+        "y": 0.68,
+        "size": 30
+      },
+      "phone": {
+        "x": 0.5,
+        "y": 0.8,
+        "size": 26
+      },
+      "company": {
+        "x": 0.5,
+        "y": 0.1,
+        "size": 30
+      },
+      "logo": {
+        "x": 0.08,
+        "y": 0.08,
+        "w": 0.15,
+        "h": 0.12
+      },
+      "photo": {
+        "x": 0.32,
+        "y": 0.25,
+        "w": 0.36,
+        "h": 0.28
+      },
+      "qr": {
+        "x": 0.08,
+        "y": 0.78,
         "w": 0.12,
         "h": 0.12
       }
     }
   }
 ];
-
 let products = [];
 let currentFilter = "all";
 let editorProduct = null;
@@ -661,9 +5003,7 @@ let photoImageObj = null;
 let dragging = false;
 let dragTarget = null;
 
-function clone(data) {
-  return JSON.parse(JSON.stringify(data));
-}
+function clone(data) { return JSON.parse(JSON.stringify(data)); }
 
 function defaultLayout() {
   return {
@@ -677,31 +5017,25 @@ function defaultLayout() {
   };
 }
 
-function loadProducts() {
-  const custom = readStorage("custom_products", []);
-  const layouts = readStorage("layout_overrides", {});
-  products = clone(DEFAULT_PRODUCTS).concat(custom);
-  products.forEach(function(p) {
-    if (layouts[p.id]) p.layout = layouts[p.id];
-    if (!p.layout) p.layout = defaultLayout();
-  });
-}
-
 function readStorage(key, fallback) {
   try {
     const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : fallback;
-  } catch(e) {
-    return fallback;
-  }
+  } catch(e) { return fallback; }
 }
 
 function writeStorage(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch(e) {
-    alert("تعذر الحفظ في المتصفح");
-  }
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) {}
+}
+
+function loadProducts() {
+  const layouts = readStorage("layout_overrides_100", {});
+  products = clone(DEFAULT_PRODUCTS);
+  products.forEach(function(p) {
+    if (layouts[p.id]) p.layout = layouts[p.id];
+    if (!p.layout) p.layout = defaultLayout();
+  });
+  document.getElementById("totalCount").textContent = products.length;
 }
 
 function categoryName(cat) {
@@ -709,7 +5043,10 @@ function categoryName(cat) {
     certificate:"إفادات",
     idcard:"بطاقات تعريف",
     membership:"عضوية",
-    employee:"بطاقات موظفين"
+    employee:"بطاقات موظفين",
+    business:"بطاقات عمل",
+    thanks:"بطاقات شكر",
+    invitation:"دعوات"
   }[cat] || cat;
 }
 
@@ -720,7 +5057,6 @@ function renderHero() {
 function renderProducts() {
   const grid = document.getElementById("productGrid");
   const q = document.getElementById("searchInput").value.trim().toLowerCase();
-
   const filtered = products.filter(function(p) {
     const catOk = currentFilter === "all" || p.category === currentFilter;
     const text = (p.title + " " + p.description + " " + p.price + " " + categoryName(p.category)).toLowerCase();
@@ -748,7 +5084,6 @@ function renderProducts() {
           </div>
           <div class="card-actions">
             <button class="btn gold" onclick="openEditor('${p.id}')">محرر السحب</button>
-            <button class="btn blue" onclick="downloadOriginal('${p.id}')">تحميل الأصل</button>
           </div>
         </div>
       </article>
@@ -775,7 +5110,6 @@ function loadImage(src) {
 async function openEditor(id) {
   editorProduct = products.find(function(p) { return p.id === id; });
   if (!editorProduct) return;
-
   originalLayout = clone(editorProduct.layout || defaultLayout());
   editorLayout = clone(editorProduct.layout || defaultLayout());
   baseImageObj = await loadImage(editorProduct.image);
@@ -796,7 +5130,6 @@ async function openEditor(id) {
   document.getElementById("textColor").value = "#111111";
   document.getElementById("editLogoFile").value = "";
   document.getElementById("editPhotoFile").value = "";
-
   syncRangeSizes();
   openModal("editorModal");
   renderEditorCanvas();
@@ -843,14 +5176,11 @@ function resizeElement(type, value) {
 
 function renderEditorCanvas() {
   if (!editorProduct || !baseImageObj || !editorLayout) return;
-
   const canvas = document.getElementById("editorCanvas");
   const ctx = canvas.getContext("2d");
   const ratio = baseImageObj.height / baseImageObj.width;
-
   canvas.width = 1400;
   canvas.height = Math.round(1400 * ratio);
-
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(baseImageObj, 0, 0, canvas.width, canvas.height);
@@ -866,14 +5196,9 @@ function renderEditorCanvas() {
   drawText("name", document.getElementById("editName").value, Number(document.getElementById("nameSize").value), "900");
   drawText("position", document.getElementById("editPosition").value, Number(document.getElementById("positionSize").value), "700");
   drawText("phone", document.getElementById("editPhone").value, Number(document.getElementById("phoneSize").value), "700");
-
   drawImageBox("logo", logoImageObj, "الشعار");
   drawImageBox("photo", photoImageObj, "الصورة");
-
-  if (document.getElementById("showQr").value === "yes") {
-    drawQR();
-  }
-
+  if (document.getElementById("showQr").value === "yes") drawQR();
   ["company","name","position","phone","logo","photo","qr"].forEach(drawSelection);
 }
 
@@ -882,7 +5207,6 @@ function drawText(type, text, size, weight) {
   const ctx = canvas.getContext("2d");
   const el = editorLayout[type];
   if (!el || !text) return;
-
   const x = el.x * canvas.width;
   const y = el.y * canvas.height;
   ctx.font = weight + " " + size + "px Tahoma, Arial";
@@ -895,12 +5219,10 @@ function drawImageBox(type, img, label) {
   const ctx = canvas.getContext("2d");
   const el = editorLayout[type];
   if (!el) return;
-
   const x = el.x * canvas.width;
   const y = el.y * canvas.height;
   const w = el.w * canvas.width;
   const h = el.h * canvas.height;
-
   ctx.save();
   roundRect(ctx, x, y, w, h, 24);
   ctx.fillStyle = "rgba(255,255,255,.92)";
@@ -908,7 +5230,6 @@ function drawImageBox(type, img, label) {
   ctx.strokeStyle = "rgba(0,0,0,.5)";
   ctx.lineWidth = 3;
   ctx.stroke();
-
   if (img) {
     ctx.save();
     roundRect(ctx, x, y, w, h, 24);
@@ -918,8 +5239,6 @@ function drawImageBox(type, img, label) {
   } else {
     ctx.fillStyle = "#777";
     ctx.font = "700 " + Math.max(18, w * .12) + "px Tahoma, Arial";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
     ctx.fillText(label, x + w / 2, y + h / 2);
   }
   ctx.restore();
@@ -939,13 +5258,11 @@ function drawQR() {
 
 function pseudoQR(ctx, x, y, w, h, text) {
   const n = 29;
-  const cell = Math.floor(Math.min(w, h) / n);
+  const cell = Math.max(2, Math.floor(Math.min(w, h) / n));
   const ox = x + (w - cell * n) / 2;
   const oy = y + (h - cell * n) / 2;
-
   ctx.fillStyle = "#fff";
   ctx.fillRect(x, y, w, h);
-
   function finder(cx, cy) {
     ctx.fillStyle = "#000";
     ctx.fillRect(ox + cx * cell, oy + cy * cell, 7 * cell, 7 * cell);
@@ -954,14 +5271,9 @@ function pseudoQR(ctx, x, y, w, h, text) {
     ctx.fillStyle = "#000";
     ctx.fillRect(ox + (cx + 2) * cell, oy + (cy + 2) * cell, 3 * cell, 3 * cell);
   }
-
-  finder(0, 0);
-  finder(n - 7, 0);
-  finder(0, n - 7);
-
+  finder(0, 0); finder(n - 7, 0); finder(0, n - 7);
   let seed = 0;
   for (let i = 0; i < text.length; i++) seed = (seed * 31 + text.charCodeAt(i)) >>> 0;
-
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
       const inFinder = (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
@@ -990,25 +5302,13 @@ function getRect(type) {
   const canvas = document.getElementById("editorCanvas");
   const el = editorLayout[type];
   if (!el) return null;
-
   if (["name","position","phone","company"].includes(type)) {
     const size = type === "name" ? Number(document.getElementById("nameSize").value) :
                  type === "position" ? Number(document.getElementById("positionSize").value) :
                  type === "phone" ? Number(document.getElementById("phoneSize").value) : 28;
-    return {
-      x: el.x * canvas.width - 260,
-      y: el.y * canvas.height - size,
-      w: 520,
-      h: size * 2
-    };
+    return { x: el.x * canvas.width - 260, y: el.y * canvas.height - size, w: 520, h: size * 2 };
   }
-
-  return {
-    x: el.x * canvas.width,
-    y: el.y * canvas.height,
-    w: el.w * canvas.width,
-    h: el.h * canvas.height
-  };
+  return { x: el.x * canvas.width, y: el.y * canvas.height, w: el.w * canvas.width, h: el.h * canvas.height };
 }
 
 function drawSelection(type) {
@@ -1018,7 +5318,6 @@ function drawSelection(type) {
   const ctx = canvas.getContext("2d");
   const r = getRect(type);
   if (!r) return;
-
   ctx.save();
   ctx.strokeStyle = "#ff0000";
   ctx.lineWidth = 4;
@@ -1031,10 +5330,7 @@ function canvasPoint(event) {
   const canvas = document.getElementById("editorCanvas");
   const rect = canvas.getBoundingClientRect();
   const e = event.touches ? event.touches[0] : event;
-  return {
-    x: (e.clientX - rect.left) * (canvas.width / rect.width),
-    y: (e.clientY - rect.top) * (canvas.height / rect.height)
-  };
+  return { x: (e.clientX - rect.left) * (canvas.width / rect.width), y: (e.clientY - rect.top) * (canvas.height / rect.height) };
 }
 
 function hitTest(pt) {
@@ -1061,7 +5357,6 @@ function moveDrag(event) {
   if (!dragging || !dragTarget || !editorLayout[dragTarget]) return;
   const canvas = document.getElementById("editorCanvas");
   const pt = canvasPoint(event);
-
   if (["name","position","phone","company"].includes(dragTarget)) {
     editorLayout[dragTarget].x = clamp(pt.x / canvas.width, 0.02, 0.98);
     editorLayout[dragTarget].y = clamp(pt.y / canvas.height, 0.02, 0.98);
@@ -1070,19 +5365,12 @@ function moveDrag(event) {
     editorLayout[dragTarget].x = clamp((pt.x - el.w * canvas.width / 2) / canvas.width, 0, 1 - el.w);
     editorLayout[dragTarget].y = clamp((pt.y - el.h * canvas.height / 2) / canvas.height, 0, 1 - el.h);
   }
-
   event.preventDefault();
   renderEditorCanvas();
 }
 
-function endDrag() {
-  dragging = false;
-  dragTarget = null;
-}
-
-function clamp(v, min, max) {
-  return Math.max(min, Math.min(max, v));
-}
+function endDrag() { dragging = false; dragTarget = null; }
+function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
 function exportPNG() {
   const canvas = document.getElementById("editorCanvas");
@@ -1103,22 +5391,11 @@ function downloadCanvas(canvas, filename, mime) {
   a.remove();
 }
 
-function downloadOriginal(id) {
-  const p = products.find(function(x) { return x.id === id; });
-  if (!p) return;
-  const a = document.createElement("a");
-  a.href = p.image;
-  a.download = p.title + ".png";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
-
 function saveLayout() {
   if (!editorProduct || !editorLayout) return;
-  const overrides = readStorage("layout_overrides", {});
+  const overrides = readStorage("layout_overrides_100", {});
   overrides[editorProduct.id] = clone(editorLayout);
-  writeStorage("layout_overrides", overrides);
+  writeStorage("layout_overrides_100", overrides);
   editorProduct.layout = clone(editorLayout);
   alert("تم حفظ أماكن العناصر");
 }
@@ -1130,178 +5407,33 @@ function resetCurrentLayout() {
   renderEditorCanvas();
 }
 
-function openModal(id) {
-  document.getElementById(id).classList.add("show");
-}
-
-function closeModal(id) {
-  document.getElementById(id).classList.remove("show");
-}
-
+function openModal(id) { document.getElementById(id).classList.add("show"); }
+function closeModal(id) { document.getElementById(id).classList.remove("show"); }
 window.addEventListener("click", function(e) {
-  document.querySelectorAll(".modal.show").forEach(function(m) {
-    if (e.target === m) m.classList.remove("show");
-  });
+  document.querySelectorAll(".modal.show").forEach(function(m) { if (e.target === m) m.classList.remove("show"); });
 });
-
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-function openAdminLogin() {
-  openModal("loginModal");
-}
-
-function loginAdmin() {
-  const email = document.getElementById("adminEmail").value.trim().toLowerCase();
-  const code = document.getElementById("adminCode").value.trim();
-  if (email === "aichetou@gmail.com" && code === "12345") {
-    localStorage.setItem("admin_logged", "yes");
-    closeModal("loginModal");
-    showAdmin();
-  } else {
-    alert("الإيميل أو الكود غير صحيح");
-  }
-}
-
-function showAdmin() {
-  document.getElementById("adminPanel").classList.add("show");
-  renderAdminList();
-  scrollToSection("adminPanel");
-}
-
-function logoutAdmin() {
-  localStorage.removeItem("admin_logged");
-  document.getElementById("adminPanel").classList.remove("show");
-}
-
-function checkAdmin() {
-  if (localStorage.getItem("admin_logged") === "yes") showAdmin();
-}
-
-function renderAdminList() {
-  const box = document.getElementById("adminList");
-  box.innerHTML = products.map(function(p) {
-    return `
-      <div class="item">
-        <img src="${p.image}" alt="">
-        <div>
-          <b>${escapeHtml(p.title)}</b>
-          <small>${categoryName(p.category)} • ${escapeHtml(p.price)}</small>
-        </div>
-        <div class="actions">
-          <button class="btn" onclick="editProduct('${p.id}')">تعديل</button>
-          <button class="btn red" onclick="deleteProduct('${p.id}')">حذف</button>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
-
-function resetForm() {
-  document.getElementById("productForm").reset();
-  document.getElementById("productId").value = "";
-}
-
-function editProduct(id) {
-  const p = products.find(function(x) { return x.id === id; });
-  if (!p) return;
-  document.getElementById("productId").value = p.id;
-  document.getElementById("productTitle").value = p.title;
-  document.getElementById("productPrice").value = p.price;
-  document.getElementById("productCategory").value = p.category;
-  document.getElementById("productDescription").value = p.description;
-  document.getElementById("productImageUrl").value = p.image;
-  scrollToSection("adminPanel");
-}
-
-function deleteProduct(id) {
-  if (!confirm("هل تريد حذف هذه البطاقة؟")) return;
-  let custom = readStorage("custom_products", []);
-  custom = custom.filter(function(p) { return p.id !== id; });
-  writeStorage("custom_products", custom);
-  loadProducts();
-  renderProducts();
-  renderAdminList();
-  renderHero();
-}
-
-function saveProduct(e) {
-  e.preventDefault();
-  const id = document.getElementById("productId").value || ("custom_" + Date.now());
-  const title = document.getElementById("productTitle").value.trim();
-  const price = document.getElementById("productPrice").value.trim();
-  const category = document.getElementById("productCategory").value;
-  const description = document.getElementById("productDescription").value.trim();
-  const imageUrl = document.getElementById("productImageUrl").value.trim();
-  const file = document.getElementById("productImageFile").files[0];
-
-  const finalize = function(img) {
-    if (!img) {
-      alert("أضف صورة البطاقة");
-      return;
-    }
-    let custom = readStorage("custom_products", []);
-    const item = {
-      id: id,
-      title: title,
-      price: price,
-      category: category,
-      description: description,
-      image: img,
-      layout: defaultLayout()
-    };
-    const idx = custom.findIndex(function(p) { return p.id === id; });
-    if (idx >= 0) custom[idx] = item;
-    else custom.unshift(item);
-    writeStorage("custom_products", custom);
-    resetForm();
-    loadProducts();
-    renderProducts();
-    renderAdminList();
-    renderHero();
-    alert("تم حفظ البطاقة");
-  };
-
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function() { finalize(reader.result); };
-    reader.readAsDataURL(file);
-  } else {
-    finalize(imageUrl);
-  }
-}
+function scrollToSection(id) { document.getElementById(id).scrollIntoView({behavior:"smooth"}); }
 
 function restoreDefaults() {
-  localStorage.removeItem("custom_products");
-  localStorage.removeItem("layout_overrides");
+  localStorage.removeItem("layout_overrides_100");
   loadProducts();
   renderProducts();
-  renderAdminList();
   renderHero();
-  alert("تم استرجاع البطاقات الافتراضية");
+  alert("تم استرجاع الإعدادات الافتراضية");
 }
 
 function escapeHtml(str) {
-  return String(str || "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+  return String(str || "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 }
 
 window.addEventListener("load", function() {
   loadProducts();
   renderHero();
   renderProducts();
-  checkAdmin();
-
   const canvas = document.getElementById("editorCanvas");
   canvas.addEventListener("mousedown", startDrag);
   canvas.addEventListener("mousemove", moveDrag);
   window.addEventListener("mouseup", endDrag);
-
   canvas.addEventListener("touchstart", startDrag, {passive:false});
   canvas.addEventListener("touchmove", moveDrag, {passive:false});
   window.addEventListener("touchend", endDrag);
