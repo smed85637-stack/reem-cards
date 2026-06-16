@@ -3,61 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>متجر البطاقات والإفادات الجاهزة للتحميل</title>
+  <title>متجر البطاقات القابلة للتعديل</title>
+
   <style>
     :root{
-      --bg:#0b0d13;
-      --panel:#141824;
-      --panel2:#1b2030;
+      --bg:#0b0f19;
+      --panel:#131a2a;
+      --panel2:#192235;
       --text:#ffffff;
-      --muted:#aeb6c8;
-      --gold:#d9a441;
-      --gold2:#ffd47a;
-      --line:rgba(255,255,255,.11);
-      --danger:#ef4444;
-      --success:#22c55e;
-      --info:#38bdf8;
-      --shadow:0 22px 55px rgba(0,0,0,.34);
+      --muted:#b7c0d4;
+      --gold:#d8a741;
+      --gold2:#ffd77a;
+      --line:rgba(255,255,255,.12);
+      --red:#ef4444;
+      --green:#22c55e;
+      --blue:#38bdf8;
       --radius:24px;
+      --shadow:0 20px 55px rgba(0,0,0,.35);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-
     body{
       margin:0;
       font-family:Tahoma, Arial, sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(217,164,65,.19), transparent 35%),
-        radial-gradient(circle at bottom left, rgba(56,189,248,.12), transparent 35%),
-        linear-gradient(180deg,#0b0d13,#111522);
+        radial-gradient(circle at top right, rgba(216,167,65,.20), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(56,189,248,.13), transparent 34%),
+        linear-gradient(180deg,#0b0f19,#111827);
       color:var(--text);
       min-height:100vh;
     }
 
-    a{text-decoration:none;color:inherit}
     button,input,select,textarea{font-family:inherit}
-
-    .container{
-      width:min(1200px,94%);
-      margin:auto;
-    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1200px,94%);margin:auto}
 
     header{
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(11,13,19,.78);
-      backdrop-filter:blur(16px);
+      background:rgba(11,15,25,.82);
+      backdrop-filter:blur(14px);
       border-bottom:1px solid var(--line);
     }
 
     .nav{
-      min-height:74px;
+      min-height:72px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
+      padding:10px 0;
     }
 
     .brand{
@@ -72,117 +69,117 @@
       width:50px;
       height:50px;
       border-radius:17px;
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:#111;
       display:grid;
       place-items:center;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#111;
       font-size:25px;
-      box-shadow:0 14px 28px rgba(217,164,65,.25);
+      box-shadow:0 12px 28px rgba(216,167,65,.25);
       flex:0 0 auto;
     }
 
     .brand small{
       display:block;
+      margin-top:2px;
       color:var(--muted);
       font-size:12px;
-      margin-top:2px;
       font-weight:600;
     }
 
     .nav-actions{
       display:flex;
-      gap:9px;
       align-items:center;
       justify-content:flex-end;
+      gap:9px;
       flex-wrap:wrap;
     }
 
     .btn{
       border:1px solid var(--line);
-      color:#fff;
       background:rgba(255,255,255,.06);
-      padding:12px 16px;
+      color:#fff;
+      padding:11px 15px;
       border-radius:999px;
       cursor:pointer;
       font-weight:900;
-      transition:.2s ease;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:7px;
+      transition:.2s ease;
     }
 
     .btn:hover{
       transform:translateY(-2px);
-      border-color:rgba(255,212,122,.48);
+      border-color:rgba(255,215,122,.55);
     }
 
     .btn.gold{
       border-color:transparent;
       background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:#15100a;
+      color:#16110a;
+    }
+
+    .btn.danger{
+      border-color:rgba(239,68,68,.45);
+      background:rgba(239,68,68,.15);
+      color:#fecaca;
     }
 
     .btn.success{
-      border-color:rgba(34,197,94,.38);
+      border-color:rgba(34,197,94,.45);
       background:rgba(34,197,94,.15);
       color:#bbf7d0;
     }
 
-    .btn.danger{
-      border-color:rgba(239,68,68,.42);
-      background:rgba(239,68,68,.14);
-      color:#fecaca;
-    }
-
     .btn.info{
-      border-color:rgba(56,189,248,.38);
-      background:rgba(56,189,248,.13);
+      border-color:rgba(56,189,248,.45);
+      background:rgba(56,189,248,.14);
       color:#bae6fd;
     }
 
     .hero{
-      padding:58px 0 30px;
+      padding:54px 0 28px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:28px;
+      grid-template-columns:1.04fr .96fr;
+      gap:26px;
       align-items:center;
     }
 
     .hero h1{
-      font-size:clamp(34px,5vw,62px);
-      line-height:1.12;
       margin:0 0 16px;
+      font-size:clamp(33px,5vw,62px);
+      line-height:1.14;
       letter-spacing:-1px;
     }
 
     .hero h1 span{color:var(--gold2)}
 
     .hero p{
-      margin:0 0 24px;
+      margin:0 0 23px;
       color:var(--muted);
-      font-size:18px;
       line-height:1.9;
+      font-size:18px;
     }
 
     .hero-card{
+      padding:17px;
       border:1px solid var(--line);
-      border-radius:34px;
-      background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));
+      border-radius:32px;
+      background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.04));
       box-shadow:var(--shadow);
-      padding:20px;
-      overflow:hidden;
     }
 
-    .hero-canvas{
+    .hero-canvas,.preview-canvas{
+      display:block;
       width:100%;
-      border-radius:24px;
-      box-shadow:0 18px 38px rgba(0,0,0,.26);
+      border-radius:22px;
       background:#111;
-      border:1px solid rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 16px 36px rgba(0,0,0,.28);
     }
 
     .stats{
@@ -193,18 +190,18 @@
     }
 
     .stat{
+      padding:16px;
+      border-radius:20px;
+      text-align:center;
       border:1px solid var(--line);
       background:rgba(255,255,255,.055);
-      border-radius:20px;
-      padding:16px;
-      text-align:center;
     }
 
     .stat b{
       display:block;
-      font-size:24px;
       color:var(--gold2);
-      margin-bottom:3px;
+      font-size:24px;
+      margin-bottom:4px;
     }
 
     .features{
@@ -215,47 +212,26 @@
     }
 
     .feature{
+      padding:18px;
+      border-radius:22px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.055);
-      border-radius:22px;
-      padding:18px;
     }
 
-    .feature .icon{
-      font-size:28px;
-      margin-bottom:10px;
-    }
-
-    .feature b{
-      display:block;
-      margin-bottom:8px;
-      font-size:17px;
-    }
-
-    .feature span{
-      color:var(--muted);
-      line-height:1.75;
-      font-size:13px;
-    }
+    .feature .icon{font-size:28px;margin-bottom:10px}
+    .feature b{display:block;margin-bottom:8px}
+    .feature span{color:var(--muted);font-size:13px;line-height:1.75}
 
     .section-title{
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
-      gap:15px;
+      gap:14px;
       margin:24px 0 15px;
     }
 
-    .section-title h2{
-      margin:0;
-      font-size:29px;
-    }
-
-    .section-title p{
-      margin:7px 0 0;
-      color:var(--muted);
-      line-height:1.65;
-    }
+    .section-title h2{margin:0;font-size:30px}
+    .section-title p{margin:7px 0 0;color:var(--muted);line-height:1.65}
 
     .toolbar{
       display:grid;
@@ -271,15 +247,16 @@
       color:#fff;
       border-radius:999px;
       outline:none;
-      padding:15px 18px;
+      padding:14px 18px;
       font-size:15px;
     }
 
     .chips{
       display:flex;
+      align-items:center;
+      justify-content:flex-end;
       flex-wrap:wrap;
       gap:8px;
-      justify-content:flex-end;
     }
 
     .chip{
@@ -287,7 +264,7 @@
       background:rgba(255,255,255,.06);
       color:#fff;
       border-radius:999px;
-      padding:11px 14px;
+      padding:10px 14px;
       cursor:pointer;
       font-weight:900;
     }
@@ -307,30 +284,31 @@
 
     .product{
       border:1px solid var(--line);
-      background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035));
       border-radius:var(--radius);
       overflow:hidden;
-      box-shadow:0 12px 34px rgba(0,0,0,.20);
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
+      box-shadow:0 13px 34px rgba(0,0,0,.20);
       transition:.22s ease;
     }
 
     .product:hover{
       transform:translateY(-5px);
-      border-color:rgba(255,212,122,.42);
+      border-color:rgba(255,215,122,.46);
     }
 
     .thumb-wrap{
-      background:#0d111b;
-      padding:12px;
       position:relative;
+      padding:12px;
+      background:#0d1320;
     }
 
     .thumb{
+      display:block;
       width:100%;
       aspect-ratio:1050/600;
       border-radius:18px;
-      display:block;
       background:#111;
+      border:1px solid rgba(255,255,255,.09);
       box-shadow:0 12px 26px rgba(0,0,0,.24);
     }
 
@@ -338,37 +316,22 @@
       position:absolute;
       top:20px;
       right:20px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(0,0,0,.45);
-      color:#fff;
-      border-radius:999px;
       padding:7px 10px;
-      font-weight:900;
+      border-radius:999px;
+      background:rgba(0,0,0,.50);
+      border:1px solid rgba(255,255,255,.16);
       font-size:12px;
+      font-weight:900;
     }
 
-    .product-body{
-      padding:15px;
-    }
-
-    .product h3{
-      margin:0 0 8px;
-      font-size:19px;
-      line-height:1.35;
-    }
-
-    .product p{
-      color:var(--muted);
-      line-height:1.65;
-      margin:0 0 13px;
-      font-size:13px;
-      min-height:42px;
-    }
+    .product-body{padding:15px}
+    .product h3{margin:0 0 8px;font-size:19px;line-height:1.35}
+    .product p{margin:0 0 13px;color:var(--muted);font-size:13px;line-height:1.65;min-height:42px}
 
     .product-meta{
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      justify-content:space-between;
       gap:10px;
       margin-bottom:13px;
     }
@@ -397,21 +360,21 @@
       grid-column:1/-1;
       text-align:center;
       color:var(--muted);
-      padding:38px;
       border:1px dashed rgba(255,255,255,.18);
       border-radius:22px;
       background:rgba(255,255,255,.04);
-      line-height:1.8;
+      padding:36px;
+      line-height:1.85;
     }
 
     .admin-panel{
       display:none;
-      border:1px solid rgba(255,212,122,.22);
-      background:rgba(255,255,255,.045);
+      margin:24px 0 44px;
+      border:1px solid rgba(255,215,122,.24);
       border-radius:30px;
       overflow:hidden;
+      background:rgba(255,255,255,.045);
       box-shadow:var(--shadow);
-      margin:25px 0 42px;
     }
 
     .admin-panel.show{display:block}
@@ -419,7 +382,7 @@
     .admin-head{
       padding:18px;
       border-bottom:1px solid var(--line);
-      background:linear-gradient(90deg,rgba(217,164,65,.12),rgba(56,189,248,.08));
+      background:linear-gradient(90deg,rgba(216,167,65,.12),rgba(56,189,248,.08));
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -433,20 +396,18 @@
     .admin-body{
       padding:18px;
       display:grid;
-      grid-template-columns:.9fr 1.1fr;
+      grid-template-columns:.92fr 1.08fr;
       gap:18px;
     }
 
     .box{
       border:1px solid var(--line);
-      background:rgba(255,255,255,.045);
       border-radius:24px;
+      background:rgba(255,255,255,.045);
       padding:16px;
     }
 
-    .box h3{
-      margin:0 0 14px;
-    }
+    .box h3{margin:0 0 14px}
 
     .form-grid{
       display:grid;
@@ -458,10 +419,10 @@
 
     label{
       display:block;
+      margin:0 0 7px;
       color:var(--muted);
       font-weight:900;
       font-size:13px;
-      margin:0 0 7px;
     }
 
     input,select,textarea{
@@ -478,20 +439,22 @@
     select option{color:#111}
     textarea{min-height:88px;resize:vertical}
 
-    .preview-canvas{
-      width:100%;
-      border-radius:22px;
-      background:#111;
-      display:block;
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 18px 34px rgba(0,0,0,.25);
+    .hint{
+      margin:12px 0 0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:13px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius:16px;
+      padding:12px;
+      background:rgba(255,255,255,.035);
     }
 
     .list{
       display:grid;
       gap:10px;
       margin-top:14px;
-      max-height:380px;
+      max-height:420px;
       overflow:auto;
       padding-left:4px;
     }
@@ -502,8 +465,8 @@
       align-items:center;
       gap:10px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.045);
       border-radius:18px;
+      background:rgba(255,255,255,.045);
       padding:9px;
     }
 
@@ -512,43 +475,12 @@
       aspect-ratio:1050/600;
       border-radius:12px;
       background:#111;
-    }
-
-    .list-title b{
       display:block;
-      margin-bottom:4px;
     }
 
-    .list-title span{
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .list-actions{
-      display:flex;
-      gap:7px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .hint{
-      margin:12px 0 0;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:13px;
-      border:1px dashed rgba(255,255,255,.17);
-      border-radius:16px;
-      padding:12px;
-      background:rgba(255,255,255,.035);
-    }
-
-    footer{
-      border-top:1px solid var(--line);
-      padding:24px 0;
-      color:var(--muted);
-      text-align:center;
-      line-height:1.7;
-    }
+    .list-title b{display:block;margin-bottom:4px}
+    .list-title span{color:var(--muted);font-size:12px}
+    .list-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
 
     .modal{
       display:none;
@@ -566,10 +498,10 @@
     }
 
     .modal-box{
-      width:min(820px,100%);
-      background:#111520;
+      width:min(850px,100%);
       border:1px solid var(--line);
       border-radius:28px;
+      background:#111827;
       box-shadow:var(--shadow);
       overflow:hidden;
     }
@@ -579,8 +511,8 @@
       border-bottom:1px solid var(--line);
       background:rgba(255,255,255,.045);
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      justify-content:space-between;
       gap:12px;
     }
 
@@ -590,12 +522,11 @@
       width:40px;
       height:40px;
       border:1px solid var(--line);
+      border-radius:50%;
       background:rgba(255,255,255,.06);
       color:#fff;
-      border-radius:50%;
       cursor:pointer;
       font-size:22px;
-      line-height:1;
     }
 
     .modal-content{padding:20px}
@@ -603,7 +534,7 @@
     .custom-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:15px;
+      gap:16px;
       align-items:start;
     }
 
@@ -613,8 +544,8 @@
       right:18px;
       bottom:18px;
       z-index:200;
-      background:#101725;
-      border:1px solid rgba(255,212,122,.35);
+      background:#101827;
+      border:1px solid rgba(255,215,122,.38);
       color:#fff;
       border-radius:16px;
       padding:13px 16px;
@@ -623,7 +554,15 @@
 
     .toast.show{display:block}
 
-    @media (max-width: 1000px){
+    footer{
+      border-top:1px solid var(--line);
+      padding:24px 0;
+      color:var(--muted);
+      text-align:center;
+      line-height:1.7;
+    }
+
+    @media(max-width:1000px){
       .hero-grid{grid-template-columns:1fr}
       .features{grid-template-columns:repeat(2,1fr)}
       .grid{grid-template-columns:repeat(2,1fr)}
@@ -633,12 +572,12 @@
       .custom-grid{grid-template-columns:1fr}
     }
 
-    @media (max-width: 650px){
-      .nav{align-items:flex-start;padding:12px 0}
+    @media(max-width:650px){
+      .nav{align-items:flex-start}
       .brand{font-size:14px}
       .brand-logo{width:43px;height:43px;border-radius:15px}
       .nav-actions .btn{padding:10px 12px;font-size:13px}
-      .hero{padding:36px 0 22px}
+      .hero{padding:35px 0 22px}
       .stats{grid-template-columns:1fr}
       .features{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
@@ -650,53 +589,52 @@
     }
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="container nav">
-    <a class="brand" href="#">
+    <a href="#" class="brand">
       <div class="brand-logo">✦</div>
       <div>
-        متجر البطاقات والإفادات
-        <small>بطاقات عمل • دعوات • إفادات • بطاقات شكر • تحميل مباشر</small>
+        متجر البطاقات القابلة للتعديل
+        <small>بطاقات عمل • دعوات • إفادات • بطاقات شكر • تحميل PNG</small>
       </div>
     </a>
 
     <div class="nav-actions">
       <button class="btn" onclick="scrollToSection('templates')">القوالب</button>
-      <button class="btn gold" onclick="openPublicCustomizer()">صمم بطاقتك</button>
+      <button class="btn gold" onclick="openCustomizer()">صمم بطاقتك</button>
       <button class="btn" onclick="openAdminLogin()">لوحة المدير</button>
     </div>
   </div>
 </header>
 
 <main class="container">
-
   <section class="hero">
     <div class="hero-grid">
       <div>
-        <h1>متجر متكامل لبيع <span>بطاقات وإفادات جاهزة للتحميل</span></h1>
+        <h1>متجر كامل لبيع <span>بطاقات جاهزة قابلة للتعديل</span></h1>
         <p>
-          اختر قالب بطاقة عمل، دعوة، إفادة، أو بطاقة شكر، أضف الاسم والتخصص والعنوان،
-          ثم حمّل التصميم كصورة PNG بجودة عالية. لوحة المدير تتحكم في القوالب والبيانات.
+          اختر بطاقة جاهزة، أضف الاسم والتخصص والعنوان والهاتف والنص، ثم حمّلها مباشرة كصورة PNG.
+          يوجد الكثير من البطاقات الجاهزة ويمكنك إضافة المزيد من لوحة المدير.
         </p>
 
         <div class="nav-actions" style="justify-content:flex-start">
-          <button class="btn gold" onclick="scrollToSection('templates')">تصفح القوالب</button>
+          <button class="btn gold" onclick="scrollToSection('templates')">تصفح البطاقات</button>
           <button class="btn info" onclick="openWhatsAppGeneral()">تواصل واتساب</button>
         </div>
 
         <div class="stats">
+          <div class="stat"><b id="countTemplates">0</b><span>قالب جاهز</span></div>
           <div class="stat"><b>PNG</b><span>تحميل مباشر</span></div>
-          <div class="stat"><b>لوحة</b><span>مدير كاملة</span></div>
-          <div class="stat"><b>قوالب</b><span>قابلة للإضافة</span></div>
+          <div class="stat"><b>مدير</b><span>تحكم كامل</span></div>
         </div>
       </div>
 
       <div class="hero-card">
         <canvas id="heroCanvas" class="hero-canvas" width="1050" height="600"></canvas>
-        <p style="color:var(--muted);margin:13px 3px 0;line-height:1.7">
-          مثال مباشر لبطاقة يتم توليدها من داخل المتجر.
+        <p style="margin:13px 3px 0;color:var(--muted);line-height:1.7">
+          مثال مباشر لبطاقة قابلة للتعديل والتحميل.
         </p>
       </div>
     </div>
@@ -705,42 +643,36 @@
   <section class="features">
     <div class="feature">
       <div class="icon">🪪</div>
-      <b>بطاقات عمل جاهزة</b>
-      <span>قوالب احترافية قابلة للتعديل والتحميل مباشرة.</span>
+      <b>بطاقات عمل</b>
+      <span>بطاقات للشركات، المحلات، المصممين، المطاعم، التعليم، والتجميل.</span>
     </div>
+
     <div class="feature">
-      <div class="icon">✍️</div>
-      <b>تعديل البيانات</b>
-      <span>أضف الاسم، التخصص، العنوان، الهاتف، البريد، والشعار.</span>
+      <div class="icon">💌</div>
+      <b>دعوات</b>
+      <span>دعوات زواج، خطوبة، تخرج، عيد ميلاد، افتتاح محل، ومناسبات.</span>
     </div>
-    <div class="feature">
-      <div class="icon">⬇️</div>
-      <b>تحميل PNG</b>
-      <span>تنزيل البطاقة النهائية كصورة عالية الجودة للطباعة أو المشاركة.</span>
-    </div>
+
     <div class="feature">
       <div class="icon">📄</div>
-      <b>الإفادات</b>
-      <span>قوالب إفادة جاهزة باسم الشخص، التخصص، العنوان، والملاحظة.</span>
+      <b>إفادات</b>
+      <span>إفادة عمل، مشاركة، تدريب، حضور، خبرة، نجاح، واستلام.</span>
     </div>
+
     <div class="feature">
       <div class="icon">🙏</div>
       <b>بطاقات شكر</b>
-      <span>بطاقات شكر وتقدير جاهزة للتعديل والتحميل أو الإرسال.</span>
-    </div>
-    <div class="feature">
-      <div class="icon">⚙️</div>
-      <b>لوحة المدير</b>
-      <span>إضافة قوالب جديدة، تعديل السعر والستايل، وحذف أي قالب.</span>
+      <span>شكر للعميل، المعلم، الضيوف، الموظف، وبطاقات رسمية وفاخرة.</span>
     </div>
   </section>
 
   <section id="templates">
     <div class="section-title">
       <div>
-        <h2>القوالب الجاهزة</h2>
-        <p>هذه القوالب تظهر للزبائن: بطاقات عمل، دعوات، إفادات، وبطاقات شكر. يمكن تعديلها أو إضافة المزيد من لوحة المدير.</p>
+        <h2>البطاقات الجاهزة</h2>
+        <p>كل بطاقة قابلة للتعديل والتحميل مباشرة. اختر بطاقة ثم اضغط “تعديل وتحميل”.</p>
       </div>
+      <button class="btn info" onclick="resetAllTemplates()">إعادة تحميل كل البطاقات</button>
     </div>
 
     <div class="toolbar">
@@ -748,7 +680,7 @@
       <div class="chips">
         <button class="chip active" onclick="setCategory('all', this)">الكل</button>
         <button class="chip" onclick="setCategory('business', this)">بطاقات عمل</button>
-        <button class="chip" onclick="setCategory('invitation', this)">بطاقات دعوة</button>
+        <button class="chip" onclick="setCategory('invitation', this)">دعوات</button>
         <button class="chip" onclick="setCategory('certificate', this)">الإفادات</button>
         <button class="chip" onclick="setCategory('thanks', this)">بطاقات شكر</button>
       </div>
@@ -761,12 +693,13 @@
     <div class="admin-head">
       <div>
         <h2>لوحة المدير</h2>
-        <p>من هنا تستطيع إضافة الاسم والتخصص والعنوان داخل البطاقة، وتحميلها جاهزة، وإدارة القوالب.</p>
+        <p>من هنا تضيف وتعدل القوالب، وتكتب بيانات البطاقة، وتحملها جاهزة.</p>
       </div>
+
       <div class="nav-actions">
         <button class="btn success" onclick="saveAdminCardData()">حفظ بيانات البطاقة</button>
         <button class="btn gold" onclick="downloadAdminCard()">تحميل البطاقة</button>
-        <button class="btn info" onclick="restoreDefaultTemplates()">إضافة كل القوالب الجاهزة</button>
+        <button class="btn info" onclick="resetAllTemplates()">إعادة كل القوالب</button>
         <button class="btn danger" onclick="logoutAdmin()">خروج</button>
       </div>
     </div>
@@ -792,7 +725,7 @@
           </div>
 
           <div class="full">
-            <label>العنوان</label>
+            <label>العنوان / المكان / الجهة</label>
             <input id="dataAddress" oninput="liveAdminPreview()" placeholder="مثال: نواكشوط - موريتانيا" />
           </div>
 
@@ -808,23 +741,22 @@
 
           <div>
             <label>الموقع / إنستغرام</label>
-            <input id="dataWebsite" oninput="liveAdminPreview()" placeholder="@username أو website.com" />
+            <input id="dataWebsite" oninput="liveAdminPreview()" placeholder="@username" />
           </div>
 
           <div>
-            <label>رابط الشعار</label>
-            <input id="dataLogo" oninput="liveAdminPreview()" placeholder="اختياري: رابط صورة الشعار" />
+            <label>التاريخ</label>
+            <input id="dataDate" oninput="liveAdminPreview()" placeholder="مثال: 2026/06/16" />
           </div>
 
           <div class="full">
-            <label>ملاحظة قصيرة / نص الإفادة أو الشكر</label>
-            <input id="dataNote" oninput="liveAdminPreview()" placeholder="مثال: تصميم وطباعة بطاقات احترافية / نص الإفادة أو الشكر" />
+            <label>ملاحظة / نص الإفادة / نص الشكر</label>
+            <textarea id="dataNote" oninput="liveAdminPreview()" placeholder="اكتب النص الذي يظهر في البطاقة"></textarea>
           </div>
         </div>
 
         <p class="hint">
-          بعد إدخال البيانات اضغط <b>حفظ بيانات البطاقة</b> ثم <b>تحميل البطاقة</b>.
-          البيانات تُحفظ في المتصفح وتبقى عند فتح الصفحة مرة أخرى.
+          اكتب البيانات ثم اضغط تحميل البطاقة. إذا لم تظهر البطاقات اضغط زر “إعادة تحميل كل البطاقات”.
         </p>
       </div>
 
@@ -834,7 +766,7 @@
 
         <div class="nav-actions" style="justify-content:flex-start;margin-top:13px">
           <button class="btn gold" onclick="downloadAdminCard()">تحميل PNG</button>
-          <button class="btn info" onclick="sendAdminCardInfoWhatsApp()">إرسال تفاصيل واتساب</button>
+          <button class="btn info" onclick="sendAdminCardInfoWhatsApp()">إرسال التفاصيل واتساب</button>
         </div>
       </div>
 
@@ -847,7 +779,7 @@
           <div class="form-grid">
             <div>
               <label>اسم القالب</label>
-              <input id="templateTitle" required placeholder="مثال: بطاقة ذهبية فاخرة" />
+              <input id="templateTitle" required placeholder="مثال: بطاقة عمل فاخرة" />
             </div>
 
             <div>
@@ -859,7 +791,7 @@
               <label>القسم</label>
               <select id="templateCategory" required>
                 <option value="business">بطاقات عمل</option>
-                <option value="invitation">بطاقات دعوة</option>
+                <option value="invitation">دعوات</option>
                 <option value="certificate">الإفادات</option>
                 <option value="thanks">بطاقات شكر</option>
               </select>
@@ -868,11 +800,11 @@
             <div>
               <label>الستايل</label>
               <select id="templateStyle" required>
-                <option value="luxury">أسود وذهبي فاخر</option>
+                <option value="luxury">أسود وذهبي</option>
                 <option value="clean">أبيض نظيف</option>
                 <option value="blue">أزرق احترافي</option>
                 <option value="green">أخضر هادئ</option>
-                <option value="purple">بنفسجي دعوات</option>
+                <option value="purple">بنفسجي</option>
                 <option value="red">أحمر فاخر</option>
                 <option value="pink">وردي ناعم</option>
                 <option value="teal">تركواز عصري</option>
@@ -890,11 +822,6 @@
               <textarea id="templateDescription" required placeholder="وصف قصير يظهر في المتجر"></textarea>
             </div>
 
-            <div class="full">
-              <label>رابط خلفية خاصة للقالب</label>
-              <input id="templateBackground" placeholder="اختياري: رابط صورة خلفية" />
-            </div>
-
             <div class="full nav-actions" style="justify-content:flex-start">
               <button class="btn gold" type="submit">حفظ القالب</button>
               <button class="btn" type="button" onclick="resetTemplateForm()">تفريغ</button>
@@ -909,62 +836,56 @@
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
   <div class="container">
-    متجر البطاقات الجاهزة للتحميل © يعمل بدون قاعدة بيانات — يتم حفظ البيانات داخل المتصفح.
+    متجر البطاقات القابلة للتعديل © ملف HTML واحد يعمل بدون قاعدة بيانات.
   </div>
 </footer>
 
-<!-- تسجيل دخول المدير -->
+<!-- نافذة دخول المدير -->
 <div id="loginModal" class="modal">
   <div class="modal-box">
     <div class="modal-head">
       <h3>دخول المدير</h3>
       <button class="close" onclick="closeModal('loginModal')">×</button>
     </div>
+
     <div class="modal-content">
       <div class="form-grid">
         <div class="full">
           <label>إيميل المدير</label>
-          <input id="adminEmail" placeholder="Aichetou@gmail.com" />
+          <input id="adminEmail" value="Aichetou@gmail.com" />
         </div>
 
         <div class="full">
           <label>كود المدير</label>
-          <input id="adminCode" type="password" placeholder="12345" />
+          <input id="adminCode" type="password" value="12345" />
         </div>
 
         <div class="full">
           <button class="btn gold" onclick="loginAdmin()">دخول</button>
         </div>
       </div>
-
-      <p class="hint">
-        بيانات الدخول الافتراضية:
-        <b style="color:var(--gold2)">Aichetou@gmail.com</b>
-        /
-        <b style="color:var(--gold2)">12345</b>
-      </p>
     </div>
   </div>
 </div>
 
-<!-- تخصيص الزبون -->
+<!-- نافذة التعديل للزبون -->
 <div id="customModal" class="modal">
   <div class="modal-box">
     <div class="modal-head">
-      <h3>صمم بطاقتك وحمّلها</h3>
+      <h3>تعديل وتحميل البطاقة</h3>
       <button class="close" onclick="closeModal('customModal')">×</button>
     </div>
+
     <div class="modal-content">
       <div class="custom-grid">
         <div>
           <div class="form-grid">
             <div class="full">
-              <label>اختر القالب</label>
+              <label>القالب</label>
               <select id="publicTemplateSelect" onchange="livePublicPreview()"></select>
             </div>
 
@@ -974,12 +895,12 @@
             </div>
 
             <div>
-              <label>التخصص</label>
-              <input id="publicSpecialty" oninput="livePublicPreview()" placeholder="اكتب التخصص" />
+              <label>التخصص / المناسبة</label>
+              <input id="publicSpecialty" oninput="livePublicPreview()" placeholder="اكتب التخصص أو المناسبة" />
             </div>
 
             <div class="full">
-              <label>العنوان</label>
+              <label>العنوان / المكان</label>
               <input id="publicAddress" oninput="livePublicPreview()" placeholder="اكتب العنوان" />
             </div>
 
@@ -993,14 +914,24 @@
               <input id="publicEmail" oninput="livePublicPreview()" placeholder="البريد الإلكتروني" />
             </div>
 
+            <div>
+              <label>التاريخ</label>
+              <input id="publicDate" oninput="livePublicPreview()" placeholder="التاريخ" />
+            </div>
+
+            <div>
+              <label>الموقع / إنستغرام</label>
+              <input id="publicWebsite" oninput="livePublicPreview()" placeholder="@username" />
+            </div>
+
             <div class="full">
-              <label>ملاحظة</label>
-              <input id="publicNote" oninput="livePublicPreview()" placeholder="نص قصير اختياري" />
+              <label>النص</label>
+              <textarea id="publicNote" oninput="livePublicPreview()" placeholder="اكتب نص البطاقة أو الإفادة أو الشكر"></textarea>
             </div>
 
             <div class="full nav-actions" style="justify-content:flex-start">
               <button class="btn gold" onclick="downloadPublicCard()">تحميل البطاقة</button>
-              <button class="btn info" onclick="sendPublicOrderWhatsApp()">طلب عبر واتساب</button>
+              <button class="btn info" onclick="sendPublicOrderWhatsApp()">واتساب</button>
             </div>
           </div>
         </div>
@@ -1016,1001 +947,550 @@
 <div id="toast" class="toast"></div>
 
 <script>
-  /******************************
-   * الإعدادات
-   * لتغيير رقم الواتساب: عدّل الرقم فقط
-   ******************************/
-  const CONFIG = {
-    whatsappNumber: "22241835226",
-    adminEmail: "Aichetou@gmail.com",
-    adminCode: "12345"
+/* =========================
+   الإعدادات
+========================= */
+const CONFIG = {
+  whatsappNumber: "22241835226",
+  adminEmail: "Aichetou@gmail.com",
+  adminCode: "12345"
+};
+
+let currentCategory = "all";
+let adminSelectedTemplateId = null;
+
+/* =========================
+   القوالب الجاهزة
+========================= */
+const defaultTemplates = [
+  ["tpl_001","بطاقة عمل ذهبية فاخرة","business","200 MRU","luxury","بطاقة عمل فاخرة مناسبة للشركات وأصحاب المشاريع."],
+  ["tpl_002","بطاقة عمل بيضاء نظيفة","business","180 MRU","clean","تصميم أبيض بسيط مناسب للأطباء والأساتذة والخدمات الشخصية."],
+  ["tpl_003","بطاقة عمل زرقاء احترافية","business","220 MRU","blue","قالب أزرق احترافي للشركات التقنية والخدمات الإدارية."],
+  ["tpl_004","بطاقة عمل خضراء هادئة","business","190 MRU","green","ستايل أخضر مناسب للخدمات الصحية والتعليمية."],
+  ["tpl_005","بطاقة عمل تركواز عصرية","business","210 MRU","teal","قالب عصري مناسب للمشاريع الرقمية والمتاجر الإلكترونية."],
+  ["tpl_006","بطاقة عمل برتقالية تجارية","business","200 MRU","orange","تصميم تجاري واضح مناسب للمحلات والبائعين."],
+  ["tpl_007","بطاقة عمل رمادية رسمية","business","200 MRU","gray","قالب رسمي مناسب للمكاتب والشركات والاستشارات."],
+  ["tpl_008","بطاقة عمل ملكية ذهبية","business","280 MRU","royal","تصميم فاخر جدًا مناسب للمدراء والعلامات الراقية."],
+  ["tpl_009","بطاقة عمل حمراء قوية","business","210 MRU","red","ستايل أحمر جذاب مناسب للتسويق والخدمات السريعة."],
+  ["tpl_010","بطاقة عمل بنية كلاسيكية","business","190 MRU","brown","تصميم كلاسيكي مناسب للمطاعم والمقاهي والحرفيين."],
+  ["tpl_011","بطاقة عمل سماوية حديثة","business","200 MRU","cyan","قالب حديث وخفيف مناسب للخدمات التقنية والتعليم."],
+  ["tpl_012","بطاقة عمل وردية ناعمة","business","200 MRU","pink","تصميم ناعم مناسب للتجميل والأزياء والمشاريع النسائية."],
+  ["tpl_013","بطاقة عمل لمصمم","business","230 MRU","purple","بطاقة جذابة للمصممين والمصورين وصناع المحتوى."],
+  ["tpl_014","بطاقة عمل لمحل تجاري","business","180 MRU","orange","بطاقة عملية للمحلات مع رقم الهاتف والعنوان بشكل واضح."],
+  ["tpl_015","بطاقة عمل للمقاولات","business","230 MRU","blue","قالب قوي مناسب للمقاولات والخدمات المهنية."],
+  ["tpl_016","بطاقة عمل لمطعم","business","200 MRU","brown","تصميم مناسب للمطاعم والكافيهات وخدمات الطعام."],
+  ["tpl_017","بطاقة عمل لخدمات التجميل","business","200 MRU","pink","قالب أنيق لصالونات التجميل والعطور والموضة."],
+  ["tpl_018","بطاقة عمل للتعليم","business","190 MRU","green","بطاقة مناسبة للمدرسين والمراكز التعليمية."],
+  ["tpl_019","بطاقة عمل للخدمات الرقمية","business","230 MRU","teal","ستايل رقمي مناسب للشحن الإلكتروني والخدمات التقنية."],
+  ["tpl_020","بطاقة عمل VIP","business","300 MRU","royal","تصميم VIP فاخر لرجال الأعمال والخدمات الراقية."],
+
+  ["tpl_021","دعوة زواج ذهبية","invitation","300 MRU","wedding","دعوة زواج أنيقة قابلة لتعديل الاسم والتاريخ والمكان."],
+  ["tpl_022","دعوة خطوبة وردية","invitation","250 MRU","pink","قالب خطوبة ناعم للإرسال عبر واتساب أو الطباعة."],
+  ["tpl_023","دعوة تخرج بنفسجية","invitation","240 MRU","purple","دعوة تخرج جميلة مع الاسم والتخصص والتاريخ."],
+  ["tpl_024","دعوة عيد ميلاد ملونة","invitation","200 MRU","orange","قالب دعوة عيد ميلاد قابل للتعديل والتحميل."],
+  ["tpl_025","دعوة افتتاح محل","invitation","230 MRU","blue","تصميم دعوة افتتاح متجر أو مشروع جديد."],
+  ["tpl_026","دعوة عشاء خاصة","invitation","220 MRU","brown","دعوة أنيقة لعشاء خاص أو مناسبة عائلية."],
+  ["tpl_027","دعوة حفل رسمي","invitation","280 MRU","royal","قالب رسمي فاخر للحفلات والمناسبات المهمة."],
+  ["tpl_028","دعوة مولود جديد","invitation","230 MRU","cyan","دعوة لطيفة للمولود الجديد مع الاسم والتاريخ."],
+  ["tpl_029","دعوة حفل نسائي","invitation","230 MRU","pink","تصميم ناعم ومميز للمناسبات النسائية."],
+  ["tpl_030","دعوة إلكترونية واتساب","invitation","200 MRU","teal","قالب سريع ومناسب للإرسال مباشرة عبر واتساب."],
+  ["tpl_031","دعوة زواج سوداء ذهبية","invitation","320 MRU","luxury","تصميم زواج فاخر بالأسود والذهبي."],
+  ["tpl_032","دعوة تخرج رسمية","invitation","250 MRU","gray","دعوة تخرج بطابع رسمي وأنيق."],
+
+  ["tpl_033","إفادة عمل رسمية","certificate","250 MRU","clean","قالب إفادة عمل رسمي قابل لتعديل الاسم والوظيفة والعنوان."],
+  ["tpl_034","إفادة مشاركة في دورة","certificate","220 MRU","blue","قالب إفادة مشاركة مناسب للدورات والأنشطة."],
+  ["tpl_035","إفادة حضور فعالية","certificate","220 MRU","green","إفادة حضور جاهزة باسم الشخص والجهة المنظمة."],
+  ["tpl_036","إفادة تدريب","certificate","250 MRU","teal","تصميم إفادة تدريب رسمي وقابل للتعديل."],
+  ["tpl_037","إفادة مدرسية","certificate","220 MRU","cyan","إفادة بسيطة مناسبة للمدارس والمراكز التعليمية."],
+  ["tpl_038","إفادة خبرة","certificate","300 MRU","royal","إفادة خبرة فاخرة مناسبة للشركات والمؤسسات."],
+  ["tpl_039","إفادة إنجاز","certificate","260 MRU","purple","قالب إفادة إنجاز أو تقدير للمتدربين والموظفين."],
+  ["tpl_040","إفادة تطوع","certificate","220 MRU","green","قالب إفادة تطوع للأعمال الخيرية والأنشطة."],
+  ["tpl_041","إفادة استلام","certificate","200 MRU","gray","قالب إفادة استلام رسمي وبسيط."],
+  ["tpl_042","إفادة شكر رسمية","certificate","250 MRU","brown","إفادة رسمية مدمجة مع نص شكر وتقدير."],
+  ["tpl_043","إفادة نجاح","certificate","240 MRU","blue","إفادة نجاح قابلة للتعديل للطلاب والمتدربين."],
+  ["tpl_044","إفادة حضور ورشة","certificate","230 MRU","orange","قالب إفادة حضور ورشة أو لقاء تدريبي."],
+
+  ["tpl_045","بطاقة شكر وتقدير","thanks","200 MRU","purple","بطاقة شكر وتقدير جاهزة للتعديل والتحميل."],
+  ["tpl_046","بطاقة شكر ذهبية","thanks","250 MRU","luxury","قالب شكر فاخر للعملاء والمعلمين والضيوف."],
+  ["tpl_047","بطاقة شكر للعميل","thanks","200 MRU","teal","تصميم شكر مناسب للزبائن والعملاء."],
+  ["tpl_048","بطاقة شكر للمعلم","thanks","220 MRU","green","بطاقة تقدير للمعلمين والأساتذة."],
+  ["tpl_049","بطاقة شكر للضيوف","thanks","220 MRU","wedding","بطاقة شكر للضيوف بعد المناسبات والأفراح."],
+  ["tpl_050","بطاقة شكر للموظف","thanks","230 MRU","blue","قالب شكر وتقدير للموظفين والفرق."],
+  ["tpl_051","بطاقة شكر وردية","thanks","200 MRU","pink","بطاقة شكر ناعمة للمناسبات الخاصة."],
+  ["tpl_052","بطاقة شكر رسمية","thanks","220 MRU","gray","قالب شكر رسمي للشركات والمؤسسات."],
+  ["tpl_053","بطاقة شكر كلاسيكية","thanks","200 MRU","brown","ستايل كلاسيكي أنيق لرسائل الشكر."],
+  ["tpl_054","بطاقة شكر فاخرة VIP","thanks","300 MRU","royal","بطاقة شكر فاخرة جدًا بتصميم ملكي."],
+  ["tpl_055","بطاقة شكر بسيطة","thanks","180 MRU","clean","بطاقة شكر بسيطة وواضحة قابلة للتعديل."],
+  ["tpl_056","بطاقة شكر ملونة","thanks","200 MRU","orange","تصميم شكر مبهج ومناسب للمناسبات العامة."]
+].map(function(row){
+  return {
+    id:row[0],
+    title:row[1],
+    category:row[2],
+    price:row[3],
+    style:row[4],
+    description:row[5]
   };
+});
 
-  let currentCategory = "all";
-  let adminSelectedTemplateId = null;
+const defaultData = {
+  name:"أحمد محمد",
+  specialty:"مصمم جرافيك",
+  address:"نواكشوط - موريتانيا",
+  phone:"41835226",
+  email:"example@gmail.com",
+  website:"@yourname",
+  date:"2026/06/16",
+  note:"تصميم وطباعة بطاقات احترافية"
+};
 
-  const defaultTemplates = [
-    {
-      id: "tpl_001",
-      title: "بطاقة عمل ذهبية فاخرة",
-      category: "business",
-      price: "200 MRU",
-      style: "luxury",
-      description: "بطاقة عمل فاخرة مناسبة للشركات وأصحاب المشاريع.",
-      background: ""
-    },
-    {
-      id: "tpl_002",
-      title: "بطاقة عمل بيضاء نظيفة",
-      category: "business",
-      price: "180 MRU",
-      style: "clean",
-      description: "تصميم أبيض بسيط مناسب للأطباء والأساتذة والخدمات الشخصية.",
-      background: ""
-    },
-    {
-      id: "tpl_003",
-      title: "بطاقة عمل زرقاء احترافية",
-      category: "business",
-      price: "220 MRU",
-      style: "blue",
-      description: "قالب أزرق احترافي للشركات التقنية والخدمات الإدارية.",
-      background: ""
-    },
-    {
-      id: "tpl_004",
-      title: "بطاقة عمل خضراء هادئة",
-      category: "business",
-      price: "190 MRU",
-      style: "green",
-      description: "ستايل أخضر مناسب للخدمات الصحية والتعليمية.",
-      background: ""
-    },
-    {
-      id: "tpl_005",
-      title: "بطاقة عمل تركواز عصرية",
-      category: "business",
-      price: "210 MRU",
-      style: "teal",
-      description: "قالب عصري مناسب للمشاريع الرقمية والمتاجر الإلكترونية.",
-      background: ""
-    },
-    {
-      id: "tpl_006",
-      title: "بطاقة عمل برتقالية تجارية",
-      category: "business",
-      price: "200 MRU",
-      style: "orange",
-      description: "تصميم تجاري واضح مناسب للمحلات والبائعين.",
-      background: ""
-    },
-    {
-      id: "tpl_007",
-      title: "بطاقة عمل رمادية رسمية",
-      category: "business",
-      price: "200 MRU",
-      style: "gray",
-      description: "قالب رسمي مناسب للمكاتب والشركات والاستشارات.",
-      background: ""
-    },
-    {
-      id: "tpl_008",
-      title: "بطاقة عمل ملكية ذهبية",
-      category: "business",
-      price: "280 MRU",
-      style: "royal",
-      description: "تصميم فاخر جدًا مناسب للمدراء والعلامات الراقية.",
-      background: ""
-    },
-    {
-      id: "tpl_009",
-      title: "بطاقة عمل حمراء قوية",
-      category: "business",
-      price: "210 MRU",
-      style: "red",
-      description: "ستايل أحمر جذاب مناسب للتسويق والخدمات السريعة.",
-      background: ""
-    },
-    {
-      id: "tpl_010",
-      title: "بطاقة عمل بنية كلاسيكية",
-      category: "business",
-      price: "190 MRU",
-      style: "brown",
-      description: "تصميم كلاسيكي مناسب للمطاعم والمقاهي والحرفيين.",
-      background: ""
-    },
-    {
-      id: "tpl_011",
-      title: "بطاقة عمل سماوية حديثة",
-      category: "business",
-      price: "200 MRU",
-      style: "cyan",
-      description: "قالب حديث وخفيف مناسب للخدمات التقنية والتعليم.",
-      background: ""
-    },
-    {
-      id: "tpl_012",
-      title: "بطاقة عمل وردية ناعمة",
-      category: "business",
-      price: "200 MRU",
-      style: "pink",
-      description: "تصميم ناعم مناسب للتجميل والأزياء والمشاريع النسائية.",
-      background: ""
-    },
-    {
-      id: "tpl_013",
-      title: "بطاقة عمل لمصمم",
-      category: "business",
-      price: "230 MRU",
-      style: "purple",
-      description: "بطاقة جذابة للمصممين والمصورين وصناع المحتوى.",
-      background: ""
-    },
-    {
-      id: "tpl_014",
-      title: "بطاقة عمل لمحل تجاري",
-      category: "business",
-      price: "180 MRU",
-      style: "orange",
-      description: "بطاقة عملية للمحلات مع رقم الهاتف والعنوان بشكل واضح.",
-      background: ""
-    },
-    {
-      id: "tpl_015",
-      title: "بطاقة عمل للمقاولات",
-      category: "business",
-      price: "230 MRU",
-      style: "blue",
-      description: "قالب قوي مناسب للمقاولات والخدمات المهنية.",
-      background: ""
-    },
-    {
-      id: "tpl_016",
-      title: "بطاقة عمل لمطعم",
-      category: "business",
-      price: "200 MRU",
-      style: "brown",
-      description: "تصميم مناسب للمطاعم والكافيهات وخدمات الطعام.",
-      background: ""
-    },
-    {
-      id: "tpl_017",
-      title: "بطاقة عمل لخدمات التجميل",
-      category: "business",
-      price: "200 MRU",
-      style: "pink",
-      description: "قالب أنيق لصالونات التجميل والعطور والموضة.",
-      background: ""
-    },
-    {
-      id: "tpl_018",
-      title: "بطاقة عمل للتعليم",
-      category: "business",
-      price: "190 MRU",
-      style: "green",
-      description: "بطاقة مناسبة للمدرسين والمراكز التعليمية.",
-      background: ""
-    },
-    {
-      id: "tpl_019",
-      title: "بطاقة عمل للخدمات الرقمية",
-      category: "business",
-      price: "230 MRU",
-      style: "teal",
-      description: "ستايل رقمي مناسب للشحن الإلكتروني والخدمات التقنية.",
-      background: ""
-    },
-    {
-      id: "tpl_020",
-      title: "بطاقة عمل VIP",
-      category: "business",
-      price: "300 MRU",
-      style: "royal",
-      description: "تصميم VIP فاخر لرجال الأعمال والخدمات الراقية.",
-      background: ""
-    },
-    {
-      id: "tpl_021",
-      title: "دعوة زواج ذهبية",
-      category: "invitation",
-      price: "300 MRU",
-      style: "wedding",
-      description: "دعوة زواج أنيقة قابلة لتعديل الاسم والتاريخ والمكان.",
-      background: ""
-    },
-    {
-      id: "tpl_022",
-      title: "دعوة خطوبة وردية",
-      category: "invitation",
-      price: "250 MRU",
-      style: "pink",
-      description: "قالب خطوبة ناعم للإرسال عبر واتساب أو الطباعة.",
-      background: ""
-    },
-    {
-      id: "tpl_023",
-      title: "دعوة تخرج بنفسجية",
-      category: "invitation",
-      price: "240 MRU",
-      style: "purple",
-      description: "دعوة تخرج جميلة مع الاسم والتخصص والتاريخ.",
-      background: ""
-    },
-    {
-      id: "tpl_024",
-      title: "دعوة عيد ميلاد ملونة",
-      category: "invitation",
-      price: "200 MRU",
-      style: "orange",
-      description: "قالب دعوة عيد ميلاد قابل للتعديل والتحميل.",
-      background: ""
-    },
-    {
-      id: "tpl_025",
-      title: "دعوة افتتاح محل",
-      category: "invitation",
-      price: "230 MRU",
-      style: "blue",
-      description: "تصميم دعوة افتتاح متجر أو مشروع جديد.",
-      background: ""
-    },
-    {
-      id: "tpl_026",
-      title: "دعوة عشاء خاصة",
-      category: "invitation",
-      price: "220 MRU",
-      style: "brown",
-      description: "دعوة أنيقة لعشاء خاص أو مناسبة عائلية.",
-      background: ""
-    },
-    {
-      id: "tpl_027",
-      title: "دعوة حفل رسمي",
-      category: "invitation",
-      price: "280 MRU",
-      style: "royal",
-      description: "قالب رسمي فاخر للحفلات والمناسبات المهمة.",
-      background: ""
-    },
-    {
-      id: "tpl_028",
-      title: "دعوة مولود جديد",
-      category: "invitation",
-      price: "230 MRU",
-      style: "cyan",
-      description: "دعوة لطيفة للمولود الجديد مع الاسم والتاريخ.",
-      background: ""
-    },
-    {
-      id: "tpl_029",
-      title: "دعوة حفل نسائي",
-      category: "invitation",
-      price: "230 MRU",
-      style: "pink",
-      description: "تصميم ناعم ومميز للمناسبات النسائية.",
-      background: ""
-    },
-    {
-      id: "tpl_030",
-      title: "دعوة إلكترونية واتساب",
-      category: "invitation",
-      price: "200 MRU",
-      style: "teal",
-      description: "قالب سريع ومناسب للإرسال مباشرة عبر واتساب.",
-      background: ""
-    },
-    {
-      id: "tpl_031",
-      title: "دعوة زواج سوداء ذهبية",
-      category: "invitation",
-      price: "320 MRU",
-      style: "luxury",
-      description: "تصميم زواج فاخر بالأسود والذهبي.",
-      background: ""
-    },
-    {
-      id: "tpl_032",
-      title: "دعوة تخرج رسمية",
-      category: "invitation",
-      price: "250 MRU",
-      style: "gray",
-      description: "دعوة تخرج بطابع رسمي وأنيق.",
-      background: ""
-    },
-    {
-      id: "tpl_033",
-      title: "إفادة عمل رسمية",
-      category: "certificate",
-      price: "250 MRU",
-      style: "clean",
-      description: "قالب إفادة عمل رسمي قابل لتعديل الاسم والوظيفة والعنوان.",
-      background: ""
-    },
-    {
-      id: "tpl_034",
-      title: "إفادة مشاركة في دورة",
-      category: "certificate",
-      price: "220 MRU",
-      style: "blue",
-      description: "قالب إفادة مشاركة مناسب للدورات والأنشطة.",
-      background: ""
-    },
-    {
-      id: "tpl_035",
-      title: "إفادة حضور فعالية",
-      category: "certificate",
-      price: "220 MRU",
-      style: "green",
-      description: "إفادة حضور جاهزة باسم الشخص والجهة المنظمة.",
-      background: ""
-    },
-    {
-      id: "tpl_036",
-      title: "إفادة تدريب",
-      category: "certificate",
-      price: "250 MRU",
-      style: "teal",
-      description: "تصميم إفادة تدريب رسمي وقابل للتعديل.",
-      background: ""
-    },
-    {
-      id: "tpl_037",
-      title: "إفادة مدرسية",
-      category: "certificate",
-      price: "220 MRU",
-      style: "cyan",
-      description: "إفادة بسيطة مناسبة للمدارس والمراكز التعليمية.",
-      background: ""
-    },
-    {
-      id: "tpl_038",
-      title: "إفادة خبرة",
-      category: "certificate",
-      price: "300 MRU",
-      style: "royal",
-      description: "إفادة خبرة فاخرة مناسبة للشركات والمؤسسات.",
-      background: ""
-    },
-    {
-      id: "tpl_039",
-      title: "إفادة إنجاز",
-      category: "certificate",
-      price: "260 MRU",
-      style: "purple",
-      description: "قالب إفادة إنجاز أو تقدير للمتدربين والموظفين.",
-      background: ""
-    },
-    {
-      id: "tpl_040",
-      title: "إفادة تطوع",
-      category: "certificate",
-      price: "220 MRU",
-      style: "green",
-      description: "قالب إفادة تطوع للأعمال الخيرية والأنشطة.",
-      background: ""
-    },
-    {
-      id: "tpl_041",
-      title: "إفادة استلام",
-      category: "certificate",
-      price: "200 MRU",
-      style: "gray",
-      description: "قالب إفادة استلام رسمي وبسيط.",
-      background: ""
-    },
-    {
-      id: "tpl_042",
-      title: "إفادة شكر رسمية",
-      category: "certificate",
-      price: "250 MRU",
-      style: "brown",
-      description: "إفادة رسمية مدمجة مع نص شكر وتقدير.",
-      background: ""
-    },
-    {
-      id: "tpl_043",
-      title: "إفادة نجاح",
-      category: "certificate",
-      price: "240 MRU",
-      style: "blue",
-      description: "إفادة نجاح قابلة للتعديل للطلاب والمتدربين.",
-      background: ""
-    },
-    {
-      id: "tpl_044",
-      title: "إفادة حضور ورشة",
-      category: "certificate",
-      price: "230 MRU",
-      style: "orange",
-      description: "قالب إفادة حضور ورشة أو لقاء تدريبي.",
-      background: ""
-    },
-    {
-      id: "tpl_045",
-      title: "بطاقة شكر وتقدير",
-      category: "thanks",
-      price: "200 MRU",
-      style: "purple",
-      description: "بطاقة شكر وتقدير جاهزة للتعديل والتحميل.",
-      background: ""
-    },
-    {
-      id: "tpl_046",
-      title: "بطاقة شكر ذهبية",
-      category: "thanks",
-      price: "250 MRU",
-      style: "luxury",
-      description: "قالب شكر فاخر للعملاء والمعلمين والضيوف.",
-      background: ""
-    },
-    {
-      id: "tpl_047",
-      title: "بطاقة شكر للعميل",
-      category: "thanks",
-      price: "200 MRU",
-      style: "teal",
-      description: "تصميم شكر مناسب للزبائن والعملاء.",
-      background: ""
-    },
-    {
-      id: "tpl_048",
-      title: "بطاقة شكر للمعلم",
-      category: "thanks",
-      price: "220 MRU",
-      style: "green",
-      description: "بطاقة تقدير للمعلمين والأساتذة.",
-      background: ""
-    },
-    {
-      id: "tpl_049",
-      title: "بطاقة شكر للضيوف",
-      category: "thanks",
-      price: "220 MRU",
-      style: "wedding",
-      description: "بطاقة شكر للضيوف بعد المناسبات والأفراح.",
-      background: ""
-    },
-    {
-      id: "tpl_050",
-      title: "بطاقة شكر للموظف",
-      category: "thanks",
-      price: "230 MRU",
-      style: "blue",
-      description: "قالب شكر وتقدير للموظفين والفرق.",
-      background: ""
-    },
-    {
-      id: "tpl_051",
-      title: "بطاقة شكر وردية",
-      category: "thanks",
-      price: "200 MRU",
-      style: "pink",
-      description: "بطاقة شكر ناعمة للمناسبات الخاصة.",
-      background: ""
-    },
-    {
-      id: "tpl_052",
-      title: "بطاقة شكر رسمية",
-      category: "thanks",
-      price: "220 MRU",
-      style: "gray",
-      description: "قالب شكر رسمي للشركات والمؤسسات.",
-      background: ""
-    },
-    {
-      id: "tpl_053",
-      title: "بطاقة شكر كلاسيكية",
-      category: "thanks",
-      price: "200 MRU",
-      style: "brown",
-      description: "ستايل كلاسيكي أنيق لرسائل الشكر.",
-      background: ""
-    },
-    {
-      id: "tpl_054",
-      title: "بطاقة شكر فاخرة VIP",
-      category: "thanks",
-      price: "300 MRU",
-      style: "royal",
-      description: "بطاقة شكر فاخرة جدًا بتصميم ملكي.",
-      background: ""
-    },
-    {
-      id: "tpl_055",
-      title: "بطاقة شكر بسيطة",
-      category: "thanks",
-      price: "180 MRU",
-      style: "clean",
-      description: "بطاقة شكر بسيطة وواضحة قابلة للتعديل.",
-      background: ""
-    },
-    {
-      id: "tpl_056",
-      title: "بطاقة شكر ملونة",
-      category: "thanks",
-      price: "200 MRU",
-      style: "orange",
-      description: "تصميم شكر مبهج ومناسب للمناسبات العامة.",
-      background: ""
-    }
-  ];
+/* =========================
+   التخزين
+========================= */
+function saveStorage(key, value){
+  try{ localStorage.setItem(key, JSON.stringify(value)); }catch(e){}
+}
 
-  const defaultCardData = {
-    name: "أحمد محمد",
-    specialty: "مصمم جرافيك",
-    address: "نواكشوط - موريتانيا",
-    phone: "41835226",
-    email: "example@gmail.com",
-    website: "@yourname",
-    logo: "",
-    note: "تصميم وطباعة بطاقات احترافية"
+function readStorage(key, fallback){
+  try{
+    const raw = localStorage.getItem(key);
+    if(!raw) return fallback;
+    const parsed = JSON.parse(raw);
+    return parsed || fallback;
+  }catch(e){
+    return fallback;
+  }
+}
+
+function getTemplates(){
+  let saved = readStorage("editable_cards_templates_v2", null);
+
+  if(!Array.isArray(saved) || saved.length < 10){
+    saveStorage("editable_cards_templates_v2", defaultTemplates);
+    return defaultTemplates.slice();
+  }
+
+  const titles = new Set(saved.map(function(t){return t.title;}));
+  defaultTemplates.forEach(function(t){
+    if(!titles.has(t.title)) saved.push(t);
+  });
+
+  saveStorage("editable_cards_templates_v2", saved);
+  return saved;
+}
+
+function setTemplates(list){
+  saveStorage("editable_cards_templates_v2", list);
+}
+
+function getCardData(){
+  const saved = readStorage("editable_cards_data_v2", {});
+  return Object.assign({}, defaultData, saved);
+}
+
+function setCardData(data){
+  saveStorage("editable_cards_data_v2", data);
+}
+
+function resetAllTemplates(){
+  setTemplates(defaultTemplates.slice());
+  currentCategory = "all";
+  const chips = document.querySelectorAll(".chip");
+  chips.forEach(function(c){c.classList.remove("active");});
+  if(chips[0]) chips[0].classList.add("active");
+
+  adminSelectedTemplateId = defaultTemplates[0].id;
+  renderEverything();
+  showToast("تمت إعادة تحميل كل البطاقات الجاهزة");
+}
+
+/* =========================
+   النصوص والألوان
+========================= */
+function categoryName(cat){
+  if(cat === "invitation") return "دعوات";
+  if(cat === "certificate") return "الإفادات";
+  if(cat === "thanks") return "بطاقات شكر";
+  return "بطاقات عمل";
+}
+
+function styleName(style){
+  const map = {
+    luxury:"أسود وذهبي",
+    clean:"أبيض نظيف",
+    blue:"أزرق احترافي",
+    green:"أخضر هادئ",
+    purple:"بنفسجي",
+    red:"أحمر فاخر",
+    pink:"وردي ناعم",
+    teal:"تركواز عصري",
+    orange:"برتقالي تجاري",
+    royal:"ملكي ذهبي",
+    gray:"رمادي رسمي",
+    brown:"بني كلاسيكي",
+    cyan:"سماوي حديث",
+    wedding:"زفاف وردي ذهبي"
   };
+  return map[style] || style;
+}
 
-  function makeId(){
-    return "id_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+function styleColors(style){
+  const styles = {
+    luxury:["#080808","#26221a","#d8a741","#ffd77a","#ffffff","#e5e7eb","#080808"],
+    clean:["#f8fafc","#e2e8f0","#0f172a","#334155","#0f172a","#475569","#ffffff"],
+    blue:["#06142b","#0284c7","#7dd3fc","#ffffff","#ffffff","#dbeafe","#082f49"],
+    green:["#052e1b","#16a34a","#bbf7d0","#ffffff","#ffffff","#dcfce7","#052e16"],
+    purple:["#2e1065","#9333ea","#f0abfc","#ffffff","#ffffff","#f3e8ff","#3b0764"],
+    red:["#3f0a0a","#dc2626","#fecaca","#ffffff","#ffffff","#fee2e2","#450a0a"],
+    pink:["#831843","#f472b6","#fce7f3","#ffffff","#ffffff","#fdf2f8","#500724"],
+    teal:["#042f2e","#14b8a6","#99f6e4","#ffffff","#ffffff","#ccfbf1","#042f2e"],
+    orange:["#7c2d12","#f97316","#fed7aa","#ffffff","#ffffff","#ffedd5","#431407"],
+    royal:["#111827","#6d28d9","#fbbf24","#fde68a","#ffffff","#ede9fe","#111827"],
+    gray:["#111827","#64748b","#e2e8f0","#ffffff","#ffffff","#cbd5e1","#0f172a"],
+    brown:["#3b2415","#92400e","#fcd9a9","#fff7ed","#ffffff","#ffedd5","#1c1209"],
+    cyan:["#164e63","#06b6d4","#ecfeff","#ffffff","#ffffff","#cffafe","#083344"],
+    wedding:["#4a102a","#f0abfc","#fbbf24","#fff7ed","#ffffff","#fdf2f8","#4a102a"]
+  };
+  const c = styles[style] || styles.luxury;
+  return {
+    bg1:c[0],
+    bg2:c[1],
+    accent:c[2],
+    accent2:c[3],
+    text:c[4],
+    muted:c[5],
+    dark:c[6]
+  };
+}
+
+function safeText(value, fallback){
+  value = String(value || "").trim();
+  return value || fallback;
+}
+
+function escapeHtml(text){
+  return String(text || "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+/* =========================
+   رسم البطاقات Canvas
+========================= */
+function roundRect(ctx,x,y,w,h,r){
+  r = Math.min(r,w/2,h/2);
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+
+function fitFont(ctx,text,maxWidth,startSize,weight){
+  let size = startSize;
+  while(size > 20){
+    ctx.font = weight + " " + size + "px Tahoma, Arial";
+    if(ctx.measureText(text).width <= maxWidth) break;
+    size -= 2;
   }
+  return size;
+}
 
-  function getTemplates(){
-    const saved = localStorage.getItem("ready_cards_templates");
-    if(saved){
-      try {
-        const existing = JSON.parse(saved);
-        const existingTitles = new Set(existing.map(t => t.title));
-        const missingDefaults = defaultTemplates.filter(t => !existingTitles.has(t.title));
-        if(missingDefaults.length){
-          const merged = [...existing, ...missingDefaults];
-          localStorage.setItem("ready_cards_templates", JSON.stringify(merged));
-          return merged;
-        }
-        return existing;
-      } catch(e){}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight,maxLines){
+  const words = String(text || "").split(" ");
+  let line = "";
+  const lines = [];
+
+  for(let i=0;i<words.length;i++){
+    const test = line + words[i] + " ";
+    if(ctx.measureText(test).width > maxWidth && i > 0){
+      lines.push(line.trim());
+      line = words[i] + " ";
+    }else{
+      line = test;
     }
-    localStorage.setItem("ready_cards_templates", JSON.stringify(defaultTemplates));
-    return defaultTemplates;
   }
 
-  function setTemplates(templates){
-    localStorage.setItem("ready_cards_templates", JSON.stringify(templates));
+  lines.push(line.trim());
+  lines.slice(0,maxLines).forEach(function(l,idx){
+    ctx.fillText(l,x,y + idx * lineHeight);
+  });
+}
+
+function drawDecor(ctx,c){
+  ctx.save();
+
+  ctx.globalAlpha = .18;
+  ctx.fillStyle = c.accent;
+  ctx.beginPath();
+  ctx.arc(930,-50,240,0,Math.PI*2);
+  ctx.fill();
+
+  ctx.globalAlpha = .13;
+  ctx.beginPath();
+  ctx.arc(80,625,220,0,Math.PI*2);
+  ctx.fill();
+
+  ctx.globalAlpha = .88;
+  ctx.strokeStyle = c.accent;
+  ctx.lineWidth = 4;
+  roundRect(ctx,42,42,966,516,40);
+  ctx.stroke();
+
+  ctx.globalAlpha = .45;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(760,88);
+  ctx.lineTo(990,88);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(60,520);
+  ctx.lineTo(290,520);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+function drawLogo(ctx,x,y,size,c){
+  ctx.save();
+  roundRect(ctx,x,y,size,size,30);
+  ctx.fillStyle = c.accent;
+  ctx.fill();
+  ctx.fillStyle = c.dark;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = "900 54px Tahoma, Arial";
+  ctx.fillText("✦",x+size/2,y+size/2);
+  ctx.restore();
+}
+
+function drawCard(canvas,template,data){
+  const ctx = canvas.getContext("2d");
+  canvas.width = 1050;
+  canvas.height = 600;
+
+  template = template || defaultTemplates[0];
+  data = Object.assign({}, defaultData, data || {});
+  const c = styleColors(template.style);
+
+  const grad = ctx.createLinearGradient(0,0,1050,600);
+  grad.addColorStop(0,c.bg1);
+  grad.addColorStop(1,c.bg2);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,1050,600);
+
+  drawDecor(ctx,c);
+
+  ctx.save();
+  ctx.direction = "rtl";
+  ctx.textBaseline = "alphabetic";
+
+  const isInvitation = template.category === "invitation";
+  const isCertificate = template.category === "certificate";
+  const isThanks = template.category === "thanks";
+
+  let name = safeText(data.name,"أحمد محمد");
+  let specialty = safeText(data.specialty,"مصمم جرافيك");
+  let address = safeText(data.address,"نواكشوط - موريتانيا");
+  let phone = safeText(data.phone,"41835226");
+  let email = safeText(data.email,"example@gmail.com");
+  let website = safeText(data.website,"@yourname");
+  let date = safeText(data.date,"2026/06/16");
+  let note = safeText(data.note,"تصميم وطباعة بطاقات احترافية");
+
+  if(isInvitation){
+    if(!data.name) name = "دعوة خاصة";
+    if(!data.specialty) specialty = "يشرفنا حضوركم";
+    if(!data.note) note = "نتشرف بحضوركم ومشاركتنا فرحتنا";
   }
 
-  function getCardData(){
-    const saved = localStorage.getItem("ready_cards_data");
-    if(saved){
-      try { return {...defaultCardData, ...JSON.parse(saved)}; } catch(e){}
-    }
-    localStorage.setItem("ready_cards_data", JSON.stringify(defaultCardData));
-    return defaultCardData;
+  if(isCertificate){
+    if(!data.specialty) specialty = "إفادة عمل / مشاركة";
+    if(!data.note) note = "نشهد بأن المذكور أعلاه قد شارك / عمل / حضر وفق البيانات المعتمدة.";
   }
 
-  function setCardData(data){
-    localStorage.setItem("ready_cards_data", JSON.stringify(data));
+  if(isThanks){
+    if(!data.name) name = "إلى الأستاذ / العميل الكريم";
+    if(!data.specialty) specialty = "شكر وتقدير";
+    if(!data.note) note = "نتقدم لكم بخالص الشكر والتقدير على جهودكم وتعاونكم المميز.";
   }
 
-  function categoryName(cat){
-    if(cat === "invitation") return "بطاقات دعوة";
-    if(cat === "certificate") return "الإفادات";
-    if(cat === "thanks") return "بطاقات شكر";
-    return "بطاقات عمل";
-  }
-
-  function styleName(style){
-    const map = {
-      luxury:"أسود وذهبي",
-      clean:"أبيض نظيف",
-      blue:"أزرق احترافي",
-      green:"أخضر هادئ",
-      purple:"بنفسجي",
-      red:"أحمر فاخر",
-      pink:"وردي ناعم",
-      teal:"تركواز عصري",
-      orange:"برتقالي تجاري",
-      royal:"ملكي ذهبي",
-      gray:"رمادي رسمي",
-      brown:"بني كلاسيكي",
-      cyan:"سماوي حديث",
-      wedding:"زفاف وردي ذهبي"
-    };
-    return map[style] || style;
-  }
-
-  function getStyleColors(style){
-    const styles = {
-      luxury:{bg1:"#090909",bg2:"#222222",accent:"#d9a441",accent2:"#ffd47a",text:"#ffffff",muted:"#d8d8d8",dark:"#111111",light:"#ffffff"},
-      clean:{bg1:"#f8fafc",bg2:"#e2e8f0",accent:"#0f172a",accent2:"#334155",text:"#0f172a",muted:"#475569",dark:"#0f172a",light:"#ffffff"},
-      blue:{bg1:"#081a35",bg2:"#0ea5e9",accent:"#7dd3fc",accent2:"#ffffff",text:"#ffffff",muted:"#dbeafe",dark:"#082f49",light:"#ffffff"},
-      green:{bg1:"#06331f",bg2:"#16a34a",accent:"#bbf7d0",accent2:"#ffffff",text:"#ffffff",muted:"#dcfce7",dark:"#052e16",light:"#ffffff"},
-      purple:{bg1:"#2e1065",bg2:"#a855f7",accent:"#f0abfc",accent2:"#ffffff",text:"#ffffff",muted:"#f3e8ff",dark:"#3b0764",light:"#ffffff"},
-      red:{bg1:"#3f0a0a",bg2:"#dc2626",accent:"#fecaca",accent2:"#ffffff",text:"#ffffff",muted:"#fee2e2",dark:"#450a0a",light:"#ffffff"},
-      pink:{bg1:"#831843",bg2:"#f9a8d4",accent:"#fce7f3",accent2:"#ffffff",text:"#ffffff",muted:"#fdf2f8",dark:"#500724",light:"#ffffff"},
-      teal:{bg1:"#042f2e",bg2:"#14b8a6",accent:"#99f6e4",accent2:"#ffffff",text:"#ffffff",muted:"#ccfbf1",dark:"#042f2e",light:"#ffffff"},
-      orange:{bg1:"#7c2d12",bg2:"#f97316",accent:"#fed7aa",accent2:"#ffffff",text:"#ffffff",muted:"#ffedd5",dark:"#431407",light:"#ffffff"},
-      royal:{bg1:"#111827",bg2:"#6d28d9",accent:"#fbbf24",accent2:"#fde68a",text:"#ffffff",muted:"#ede9fe",dark:"#111827",light:"#ffffff"},
-      gray:{bg1:"#111827",bg2:"#64748b",accent:"#e2e8f0",accent2:"#ffffff",text:"#ffffff",muted:"#cbd5e1",dark:"#0f172a",light:"#ffffff"},
-      brown:{bg1:"#3b2415",bg2:"#92400e",accent:"#fcd9a9",accent2:"#fff7ed",text:"#ffffff",muted:"#ffedd5",dark:"#1c1209",light:"#ffffff"},
-      cyan:{bg1:"#164e63",bg2:"#67e8f9",accent:"#ecfeff",accent2:"#ffffff",text:"#ffffff",muted:"#cffafe",dark:"#083344",light:"#ffffff"},
-      wedding:{bg1:"#4a102a",bg2:"#f0abfc",accent:"#fbbf24",accent2:"#fff7ed",text:"#ffffff",muted:"#fdf2f8",dark:"#4a102a",light:"#ffffff"}
-    };
-    return styles[style] || styles.luxury;
-  }
-
-  function textOr(value, fallback){
-    return value && String(value).trim() ? String(value).trim() : fallback;
-  }
-
-  function drawRoundRect(ctx, x, y, w, h, r){
-    const rr = Math.min(r, w/2, h/2);
-    ctx.beginPath();
-    ctx.moveTo(x+rr,y);
-    ctx.arcTo(x+w,y,x+w,y+h,rr);
-    ctx.arcTo(x+w,y+h,x,y+h,rr);
-    ctx.arcTo(x,y+h,x,y,rr);
-    ctx.arcTo(x,y,x+w,y,rr);
-    ctx.closePath();
-  }
-
-  function fitText(ctx, text, maxWidth, fontSize, fontFamily, weight="700"){
-    let size = fontSize;
-    do{
-      ctx.font = `${weight} ${size}px ${fontFamily}`;
-      if(ctx.measureText(text).width <= maxWidth) break;
-      size -= 2;
-    } while(size > 20);
-    return size;
-  }
-
-  function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines){
-    const words = String(text || "").split(" ");
-    let line = "";
-    let lines = [];
-    for(let n=0; n<words.length; n++){
-      let testLine = line + words[n] + " ";
-      if(ctx.measureText(testLine).width > maxWidth && n > 0){
-        lines.push(line.trim());
-        line = words[n] + " ";
-      } else {
-        line = testLine;
-      }
-    }
-    lines.push(line.trim());
-    lines = lines.slice(0, maxLines);
-    lines.forEach((l,i) => ctx.fillText(l, x, y + i*lineHeight));
-  }
-
-  function drawLogoPlaceholder(ctx, x, y, size, colors, label){
-    ctx.save();
-    drawRoundRect(ctx, x, y, size, size, 30);
-    ctx.fillStyle = colors.accent;
-    ctx.fill();
-
-    ctx.fillStyle = colors.dark;
+  if(isInvitation){
     ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.font = "900 54px Tahoma, Arial";
-    ctx.fillText(label || "✦", x + size/2, y + size/2);
-    ctx.restore();
+    ctx.fillStyle = c.accent2;
+    ctx.font = "900 42px Tahoma, Arial";
+    ctx.fillText("بطاقة دعوة",525,125);
+
+    ctx.fillStyle = c.text;
+    const nSize = fitFont(ctx,name,760,78,"900");
+    ctx.font = "900 " + nSize + "px Tahoma, Arial";
+    ctx.fillText(name,525,235);
+
+    ctx.fillStyle = c.accent;
+    ctx.font = "800 36px Tahoma, Arial";
+    ctx.fillText(specialty,525,300);
+
+    ctx.fillStyle = c.muted;
+    ctx.font = "700 27px Tahoma, Arial";
+    ctx.fillText("المكان: " + address,525,370);
+    ctx.fillText("التاريخ: " + date,525,410);
+
+    ctx.fillStyle = c.text;
+    ctx.font = "700 25px Tahoma, Arial";
+    wrapText(ctx,note,850,465,660,38,2);
+
+    ctx.fillStyle = c.accent2;
+    ctx.font = "900 26px Tahoma, Arial";
+    ctx.fillText(phone,525,545);
   }
 
-  function drawDecorations(ctx, colors, style){
-    ctx.save();
+  else if(isCertificate){
+    ctx.textAlign = "center";
+    ctx.fillStyle = c.accent2;
+    ctx.font = "900 48px Tahoma, Arial";
+    ctx.fillText("إفادة",525,115);
 
-    ctx.globalAlpha = .18;
-    ctx.fillStyle = colors.accent;
+    ctx.strokeStyle = c.accent;
+    ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.arc(930, -40, 240, 0, Math.PI*2);
-    ctx.fill();
-
-    ctx.globalAlpha = .12;
-    ctx.beginPath();
-    ctx.arc(70, 620, 220, 0, Math.PI*2);
-    ctx.fill();
-
-    ctx.globalAlpha = .95;
-    if(style === "clean"){
-      ctx.strokeStyle = "#cbd5e1";
-      ctx.lineWidth = 4;
-    } else {
-      ctx.strokeStyle = colors.accent;
-      ctx.lineWidth = 3;
-    }
-    drawRoundRect(ctx, 42, 42, 966, 516, 40);
+    ctx.moveTo(385,142);
+    ctx.lineTo(665,142);
     ctx.stroke();
 
-    ctx.globalAlpha = .65;
-    ctx.beginPath();
-    ctx.moveTo(770, 82);
-    ctx.lineTo(1000, 82);
-    ctx.stroke();
+    ctx.fillStyle = c.muted;
+    ctx.font = "800 27px Tahoma, Arial";
+    ctx.fillText("يشهد هذا المستند بأن",525,205);
 
-    ctx.globalAlpha = .26;
-    ctx.beginPath();
-    ctx.moveTo(42, 520);
-    ctx.lineTo(300, 520);
-    ctx.stroke();
+    ctx.fillStyle = c.text;
+    const nSize = fitFont(ctx,name,760,66,"900");
+    ctx.font = "900 " + nSize + "px Tahoma, Arial";
+    ctx.fillText(name,525,285);
 
-    ctx.restore();
-  }
+    ctx.fillStyle = c.accent;
+    ctx.font = "800 32px Tahoma, Arial";
+    ctx.fillText(specialty,525,350);
 
-  async function loadImageSafe(src){
-    if(!src) return null;
-    return new Promise(resolve => {
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.onload = () => resolve(img);
-      img.onerror = () => resolve(null);
-      img.src = src;
-    });
-  }
+    ctx.fillStyle = c.text;
+    ctx.font = "700 25px Tahoma, Arial";
+    wrapText(ctx,note,850,420,650,38,2);
 
-  async function drawCard(canvas, template, data, options={}){
-    const ctx = canvas.getContext("2d");
-    canvas.width = 1050;
-    canvas.height = 600;
-
-    const colors = getStyleColors(template.style);
-    const bgImg = await loadImageSafe(template.background);
-    const logoImg = await loadImageSafe(data.logo);
-
-    ctx.clearRect(0,0,1050,600);
-
-    if(bgImg){
-      ctx.drawImage(bgImg, 0, 0, 1050, 600);
-      ctx.fillStyle = "rgba(0,0,0,.42)";
-      ctx.fillRect(0,0,1050,600);
-    } else {
-      const grad = ctx.createLinearGradient(0,0,1050,600);
-      grad.addColorStop(0, colors.bg1);
-      grad.addColorStop(1, colors.bg2);
-      ctx.fillStyle = grad;
-      ctx.fillRect(0,0,1050,600);
-    }
-
-    drawDecorations(ctx, colors, template.style);
-
-    ctx.save();
-    ctx.direction = "rtl";
     ctx.textAlign = "right";
-    ctx.textBaseline = "alphabetic";
+    ctx.fillStyle = c.muted;
+    ctx.font = "700 22px Tahoma, Arial";
+    ctx.fillText("الجهة / العنوان: " + address,950,520);
 
-    const isInvitation = template.category === "invitation";
-    const isCertificate = template.category === "certificate";
-    const isThanks = template.category === "thanks";
-
-    let defaultName = "أحمد محمد";
-    let defaultSpecialty = "مصمم جرافيك";
-    let defaultNote = "تصميم وطباعة بطاقات احترافية";
-
-    if(isInvitation){
-      defaultName = "دعوة خاصة";
-      defaultSpecialty = "يشرفنا حضوركم";
-      defaultNote = "نتشرف بحضوركم ومشاركتنا فرحتنا";
-    }
-
-    if(isCertificate){
-      defaultName = "محمد أحمد";
-      defaultSpecialty = "إفادة عمل / مشاركة";
-      defaultNote = "نشهد بأن المذكور أعلاه قد شارك / عمل / حضر وفق البيانات المعتمدة.";
-    }
-
-    if(isThanks){
-      defaultName = "إلى الأستاذ / العميل الكريم";
-      defaultSpecialty = "شكر وتقدير";
-      defaultNote = "نتقدم لكم بخالص الشكر والتقدير على جهودكم وتعاونكم المميز.";
-    }
-
-    const name = textOr(data.name, defaultName);
-    const specialty = textOr(data.specialty, defaultSpecialty);
-    const address = textOr(data.address, "نواكشوط - موريتانيا");
-    const phone = textOr(data.phone, "41835226");
-    const email = textOr(data.email, "example@gmail.com");
-    const website = textOr(data.website, "@yourname");
-    const note = textOr(data.note, defaultNote);
-
-    if(isInvitation){
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "900 36px Tahoma, Arial";
-      ctx.fillText("بطاقة دعوة", 950, 120);
-
-      ctx.fillStyle = colors.text;
-      const nSize = fitText(ctx, name, 720, 78, "Tahoma, Arial", "900");
-      ctx.font = `900 ${nSize}px Tahoma, Arial`;
-      ctx.fillText(name, 950, 230);
-
-      ctx.fillStyle = colors.accent;
-      ctx.font = "800 36px Tahoma, Arial";
-      ctx.fillText(specialty, 950, 295);
-
-      ctx.fillStyle = colors.muted;
-      ctx.font = "700 27px Tahoma, Arial";
-      ctx.fillText("المكان: " + address, 950, 370);
-
-      ctx.fillStyle = colors.text;
-      ctx.font = "700 26px Tahoma, Arial";
-      wrapText(ctx, note, 950, 430, 760, 42, 2);
-
-      ctx.textAlign = "center";
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "900 28px Tahoma, Arial";
-      ctx.fillText(phone, 220, 500);
-
-    } else if(isCertificate){
-      ctx.textAlign = "center";
-
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "900 42px Tahoma, Arial";
-      ctx.fillText("إفادة", 525, 118);
-
-      ctx.strokeStyle = colors.accent;
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.moveTo(385, 142);
-      ctx.lineTo(665, 142);
-      ctx.stroke();
-
-      ctx.fillStyle = colors.muted;
-      ctx.font = "800 26px Tahoma, Arial";
-      ctx.fillText("يشهد هذا المستند بأن", 525, 210);
-
-      ctx.fillStyle = colors.text;
-      const certNameSize = fitText(ctx, name, 780, 64, "Tahoma, Arial", "900");
-      ctx.font = `900 ${certNameSize}px Tahoma, Arial`;
-      ctx.fillText(name, 525, 290);
-
-      ctx.fillStyle = colors.accent;
-      ctx.font = "800 32px Tahoma, Arial";
-      ctx.fillText(specialty, 525, 350);
-
-      ctx.fillStyle = colors.text;
-      ctx.font = "700 25px Tahoma, Arial";
-      wrapText(ctx, note, 850, 420, 650, 38, 2);
-
-      ctx.textAlign = "right";
-      ctx.fillStyle = colors.muted;
-      ctx.font = "700 22px Tahoma, Arial";
-      ctx.fillText("العنوان / الجهة: " + address, 950, 520);
-
-      ctx.textAlign = "left";
-      ctx.fillText("الهاتف: " + phone, 72, 520);
-
-    } else if(isThanks){
-      ctx.textAlign = "center";
-
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "900 42px Tahoma, Arial";
-      ctx.fillText("بطاقة شكر وتقدير", 525, 135);
-
-      ctx.fillStyle = colors.muted;
-      ctx.font = "800 28px Tahoma, Arial";
-      ctx.fillText(specialty, 525, 205);
-
-      ctx.fillStyle = colors.text;
-      const thanksNameSize = fitText(ctx, name, 760, 62, "Tahoma, Arial", "900");
-      ctx.font = `900 ${thanksNameSize}px Tahoma, Arial`;
-      ctx.fillText(name, 525, 295);
-
-      ctx.fillStyle = colors.accent;
-      ctx.font = "900 34px Tahoma, Arial";
-      ctx.fillText("شكرًا لكم", 525, 360);
-
-      ctx.fillStyle = colors.text;
-      ctx.font = "700 27px Tahoma, Arial";
-      wrapText(ctx, note, 850, 430, 650, 42, 2);
-
-      ctx.textAlign = "center";
-      ctx.fillStyle = colors.muted;
-      ctx.font = "700 22px Tahoma, Arial";
-      ctx.fillText(address + "  •  " + phone, 525, 525);
-
-    } else {
-      const logoX = 72, logoY = 80, logoSize = 145;
-      if(logoImg){
-        ctx.save();
-        drawRoundRect(ctx, logoX, logoY, logoSize, logoSize, 30);
-        ctx.clip();
-        ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
-        ctx.restore();
-      } else {
-        drawLogoPlaceholder(ctx, logoX, logoY, logoSize, colors, "✦");
-      }
-
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "800 28px Tahoma, Arial";
-      ctx.textAlign = "right";
-      ctx.fillText("بطاقة عمل", 950, 115);
-
-      ctx.fillStyle = colors.text;
-      const nSize = fitText(ctx, name, 640, 72, "Tahoma, Arial", "900");
-      ctx.font = `900 ${nSize}px Tahoma, Arial`;
-      ctx.fillText(name, 950, 205);
-
-      ctx.fillStyle = colors.accent;
-      ctx.font = "800 36px Tahoma, Arial";
-      ctx.fillText(specialty, 950, 263);
-
-      ctx.fillStyle = colors.muted;
-      ctx.font = "700 24px Tahoma, Arial";
-      ctx.fillText(note, 950, 318);
-
-      ctx.fillStyle = colors.text;
-      ctx.font = "700 26px Tahoma, Arial";
-      ctx.fillText("📍 " + address, 950, 405);
-
-      ctx.fillStyle = colors.muted;
-      ctx.font = "700 24px Tahoma, Arial";
-      ctx.fillText("📞 " + phone, 950, 458);
-      ctx.fillText("✉️ " + email, 950, 505);
-
-      ctx.textAlign = "left";
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "800 25px Tahoma, Arial";
-      ctx.fillText(website, 75, 505);
-    }
-
-    ctx.restore();
-      } else {
-        drawLogoPlaceholder(ctx, logoX, logoY, logoSize, colors, "✦");
-      }
-
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "800 28px Tahoma, Arial";
-      ctx.textAlign = "right";
-      ctx.fillText("بطاقة عمل", 950, 115);
-
-      ctx.fillStyle = colors.text;
-      const nSize = fitText(ctx, name, 640, 72, "Tahoma, Arial", "900");
-      ctx.font = `900 ${nSize}px Tahoma, Arial`;
-      ctx.fillText(name, 950, 205);
-
-      ctx.fillStyle = colors.accent;
-      ctx.font = "800 36px Tahoma, Arial";
-      ctx.fillText(specialty, 950, 263);
-
-      ctx.fillStyle = colors.muted;
-      ctx.font = "700 24px Tahoma, Arial";
-      ctx.fillText(note, 950, 318);
-
-      ctx.fillStyle = colors.text;
-      ctx.font = "700 26px Tahoma, Arial";
-      ctx.fillText("📍 " + address, 950, 405);
-
-      ctx.fillStyle = colors.muted;
-      ctx.font = "700 24px Tahoma, Arial";
-      ctx.fillText("📞 " + phone, 950, 458);
-      ctx.fillText("✉️ " + email, 950, 505);
-
-      ctx.textAlign = "left";
-      ctx.fillStyle = colors.accent2;
-      ctx.font = "800 25px Tahoma, Arial";
-      ctx.fillText(website, 75, 505);
-    }
-
-    ctx.restore();
-
-    ctx.save();
-    ctx.direction = "ltr";
     ctx.textAlign = "left";
-    ctx.fillStyle = template.style === "clean" ? "rgba(15,23,42,.65)" : "rgba(255,255,255,.55)";
-    ctx.font = "700 18px Tahoma, Arial";
-    ctx.fillText("Ready Card Template", 70, 555);
-    ctx.restore();
+    ctx.fillText("التاريخ: " + date,72,520);
   }
 
-  async function renderTemplates(){
-    const grid = document.getElementById("templateGrid");
-    const q = document.getElementById("searchInput").value.trim().toLowerCase();
-    const data = getCardData();
-    const templates = getTemplates().filter(t => {
-      const byCat = currentCategory === "all" || t.category === currentCategory;
-      const text = `${t.title} ${t.description} ${t.price} ${styleName(t.style)} ${categoryName(t.category)}`.toLowerCase();
-      return byCat && (!q || text.includes(q));
-    });
+  else if(isThanks){
+    ctx.textAlign = "center";
+    ctx.fillStyle = c.accent2;
+    ctx.font = "900 44px Tahoma, Arial";
+    ctx.fillText("بطاقة شكر وتقدير",525,130);
 
-    if(!templates.length){
-      grid.innerHTML = `<div class="empty">لا توجد قوالب مطابقة. ادخل لوحة المدير وأضف قالب جديد.</div>`;
-      return;
-    }
+    ctx.fillStyle = c.muted;
+    ctx.font = "800 28px Tahoma, Arial";
+    ctx.fillText(specialty,525,205);
 
-    grid.innerHTML = templates.map(t => `
+    ctx.fillStyle = c.text;
+    const nSize = fitFont(ctx,name,760,62,"900");
+    ctx.font = "900 " + nSize + "px Tahoma, Arial";
+    ctx.fillText(name,525,292);
+
+    ctx.fillStyle = c.accent;
+    ctx.font = "900 35px Tahoma, Arial";
+    ctx.fillText("شكرًا لكم",525,360);
+
+    ctx.fillStyle = c.text;
+    ctx.font = "700 27px Tahoma, Arial";
+    wrapText(ctx,note,850,430,650,42,2);
+
+    ctx.fillStyle = c.muted;
+    ctx.font = "700 22px Tahoma, Arial";
+    ctx.fillText(address + "  •  " + date,525,525);
+  }
+
+  else{
+    drawLogo(ctx,74,82,145,c);
+
+    ctx.textAlign = "right";
+    ctx.fillStyle = c.accent2;
+    ctx.font = "800 28px Tahoma, Arial";
+    ctx.fillText("بطاقة عمل",950,115);
+
+    ctx.fillStyle = c.text;
+    const nSize = fitFont(ctx,name,640,72,"900");
+    ctx.font = "900 " + nSize + "px Tahoma, Arial";
+    ctx.fillText(name,950,205);
+
+    ctx.fillStyle = c.accent;
+    ctx.font = "800 36px Tahoma, Arial";
+    ctx.fillText(specialty,950,263);
+
+    ctx.fillStyle = c.muted;
+    ctx.font = "700 24px Tahoma, Arial";
+    ctx.fillText(note,950,318);
+
+    ctx.fillStyle = c.text;
+    ctx.font = "700 26px Tahoma, Arial";
+    ctx.fillText("📍 " + address,950,405);
+
+    ctx.fillStyle = c.muted;
+    ctx.font = "700 24px Tahoma, Arial";
+    ctx.fillText("📞 " + phone,950,458);
+    ctx.fillText("✉️ " + email,950,505);
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = c.accent2;
+    ctx.font = "800 25px Tahoma, Arial";
+    ctx.fillText(website,75,505);
+  }
+
+  ctx.restore();
+
+  ctx.save();
+  ctx.direction = "ltr";
+  ctx.textAlign = "left";
+  ctx.fillStyle = "rgba(255,255,255,.55)";
+  if(template.style === "clean") ctx.fillStyle = "rgba(15,23,42,.55)";
+  ctx.font = "700 18px Tahoma, Arial";
+  ctx.fillText("Editable Ready Template",70,555);
+  ctx.restore();
+}
+
+/* =========================
+   عرض البطاقات
+========================= */
+function renderTemplates(){
+  const grid = document.getElementById("templateGrid");
+  const searchInput = document.getElementById("searchInput");
+  const q = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  const data = getCardData();
+  const allTemplates = getTemplates();
+
+  document.getElementById("countTemplates").textContent = allTemplates.length;
+
+  const filtered = allTemplates.filter(function(t){
+    const categoryOk = currentCategory === "all" || t.category === currentCategory;
+    const text = (t.title + " " + t.description + " " + t.price + " " + categoryName(t.category) + " " + styleName(t.style)).toLowerCase();
+    const searchOk = !q || text.includes(q);
+    return categoryOk && searchOk;
+  });
+
+  if(!filtered.length){
+    grid.innerHTML = '<div class="empty">لا توجد بطاقات مطابقة. اضغط زر “إعادة تحميل كل البطاقات”.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(function(t){
+    return `
       <article class="product">
         <div class="thumb-wrap">
           <canvas class="thumb" id="thumb_${t.id}" width="1050" height="600"></canvas>
@@ -2024,312 +1504,305 @@
             <span class="style-pill">${escapeHtml(styleName(t.style))}</span>
           </div>
           <div class="product-actions">
-            <button class="btn gold" onclick="openPublicCustomizer('${t.id}')">تعديل وتحميل</button>
-            <button class="btn info" onclick="quickDownload('${t.id}')">تحميل جاهز</button>
+            <button class="btn gold" onclick="openCustomizer('${t.id}')">تعديل وتحميل</button>
+            <button class="btn info" onclick="quickDownload('${t.id}')">تحميل سريع</button>
           </div>
         </div>
       </article>
-    `).join("");
+    `;
+  }).join("");
 
-    for(const t of templates){
-      const c = document.getElementById("thumb_" + t.id);
-      if(c) await drawCard(c, t, data);
-    }
+  filtered.forEach(function(t){
+    const canvas = document.getElementById("thumb_" + t.id);
+    if(canvas) drawCard(canvas,t,data);
+  });
+}
+
+function renderHero(){
+  const canvas = document.getElementById("heroCanvas");
+  const t = getTemplates()[0] || defaultTemplates[0];
+  if(canvas) drawCard(canvas,t,getCardData());
+}
+
+function renderEverything(){
+  renderTemplates();
+  renderHero();
+  if(document.getElementById("adminPanel").classList.contains("show")){
+    renderAdmin();
+  }
+}
+
+function setCategory(cat, el){
+  currentCategory = cat;
+  document.querySelectorAll(".chip").forEach(function(c){c.classList.remove("active");});
+  if(el) el.classList.add("active");
+  renderTemplates();
+}
+
+/* =========================
+   التخصيص والتحميل
+========================= */
+function renderPublicSelect(selectedId){
+  const select = document.getElementById("publicTemplateSelect");
+  const templates = getTemplates();
+  if(!selectedId && templates[0]) selectedId = templates[0].id;
+
+  select.innerHTML = templates.map(function(t){
+    return `<option value="${t.id}" ${t.id === selectedId ? "selected" : ""}>${escapeHtml(t.title)}</option>`;
+  }).join("");
+}
+
+function fillPublicData(){
+  const d = getCardData();
+  document.getElementById("publicName").value = d.name || "";
+  document.getElementById("publicSpecialty").value = d.specialty || "";
+  document.getElementById("publicAddress").value = d.address || "";
+  document.getElementById("publicPhone").value = d.phone || "";
+  document.getElementById("publicEmail").value = d.email || "";
+  document.getElementById("publicWebsite").value = d.website || "";
+  document.getElementById("publicDate").value = d.date || "";
+  document.getElementById("publicNote").value = d.note || "";
+}
+
+function getPublicData(){
+  return {
+    name:document.getElementById("publicName").value.trim(),
+    specialty:document.getElementById("publicSpecialty").value.trim(),
+    address:document.getElementById("publicAddress").value.trim(),
+    phone:document.getElementById("publicPhone").value.trim(),
+    email:document.getElementById("publicEmail").value.trim(),
+    website:document.getElementById("publicWebsite").value.trim(),
+    date:document.getElementById("publicDate").value.trim(),
+    note:document.getElementById("publicNote").value.trim()
+  };
+}
+
+function openCustomizer(templateId){
+  renderPublicSelect(templateId);
+  fillPublicData();
+  openModal("customModal");
+  livePublicPreview();
+}
+
+function livePublicPreview(){
+  const id = document.getElementById("publicTemplateSelect").value;
+  const t = getTemplates().find(function(x){return x.id === id;}) || defaultTemplates[0];
+  drawCard(document.getElementById("publicCanvas"),t,getPublicData());
+}
+
+function downloadPublicCard(){
+  const id = document.getElementById("publicTemplateSelect").value;
+  const t = getTemplates().find(function(x){return x.id === id;}) || defaultTemplates[0];
+  const canvas = document.createElement("canvas");
+  drawCard(canvas,t,getPublicData());
+  downloadCanvas(canvas, cleanFileName(t.title + "-" + (getPublicData().name || "card")) + ".png");
+}
+
+function quickDownload(id){
+  const t = getTemplates().find(function(x){return x.id === id;}) || defaultTemplates[0];
+  const canvas = document.createElement("canvas");
+  drawCard(canvas,t,getCardData());
+  downloadCanvas(canvas, cleanFileName(t.title) + ".png");
+}
+
+function downloadCanvas(canvas, filename){
+  const a = document.createElement("a");
+  a.href = canvas.toDataURL("image/png");
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  showToast("تم تحميل البطاقة");
+}
+
+function cleanFileName(name){
+  return String(name || "card").replace(/[\\/:*?"<>|]/g,"-").replace(/\s+/g,"-");
+}
+
+/* =========================
+   لوحة المدير
+========================= */
+function openAdminLogin(){
+  openModal("loginModal");
+}
+
+function loginAdmin(){
+  const email = document.getElementById("adminEmail").value.trim().toLowerCase();
+  const code = document.getElementById("adminCode").value.trim();
+
+  if(email === CONFIG.adminEmail.toLowerCase() && code === CONFIG.adminCode){
+    try{localStorage.setItem("editable_cards_admin_v2","yes");}catch(e){}
+    closeModal("loginModal");
+    showAdmin();
+    showToast("تم دخول المدير");
+    scrollToSection("adminPanel");
+  }else{
+    showToast("الإيميل أو الكود غير صحيح");
+  }
+}
+
+function checkAdmin(){
+  try{
+    if(localStorage.getItem("editable_cards_admin_v2") === "yes") showAdmin();
+  }catch(e){}
+}
+
+function showAdmin(){
+  const panel = document.getElementById("adminPanel");
+  panel.classList.add("show");
+  fillAdminData();
+  renderAdmin();
+}
+
+function logoutAdmin(){
+  try{localStorage.removeItem("editable_cards_admin_v2");}catch(e){}
+  document.getElementById("adminPanel").classList.remove("show");
+  showToast("تم الخروج");
+}
+
+function fillAdminData(){
+  const d = getCardData();
+  document.getElementById("dataName").value = d.name || "";
+  document.getElementById("dataSpecialty").value = d.specialty || "";
+  document.getElementById("dataAddress").value = d.address || "";
+  document.getElementById("dataPhone").value = d.phone || "";
+  document.getElementById("dataEmail").value = d.email || "";
+  document.getElementById("dataWebsite").value = d.website || "";
+  document.getElementById("dataDate").value = d.date || "";
+  document.getElementById("dataNote").value = d.note || "";
+}
+
+function getAdminData(){
+  return {
+    name:document.getElementById("dataName").value.trim(),
+    specialty:document.getElementById("dataSpecialty").value.trim(),
+    address:document.getElementById("dataAddress").value.trim(),
+    phone:document.getElementById("dataPhone").value.trim(),
+    email:document.getElementById("dataEmail").value.trim(),
+    website:document.getElementById("dataWebsite").value.trim(),
+    date:document.getElementById("dataDate").value.trim(),
+    note:document.getElementById("dataNote").value.trim()
+  };
+}
+
+function saveAdminCardData(){
+  setCardData(getAdminData());
+  renderTemplates();
+  renderHero();
+  showToast("تم حفظ بيانات البطاقة");
+}
+
+function renderAdmin(){
+  renderAdminSelect();
+  renderAdminList();
+  liveAdminPreview();
+}
+
+function renderAdminSelect(){
+  const templates = getTemplates();
+  if(!adminSelectedTemplateId && templates[0]) adminSelectedTemplateId = templates[0].id;
+
+  const select = document.getElementById("adminTemplateSelect");
+  select.innerHTML = templates.map(function(t){
+    return `<option value="${t.id}" ${t.id === adminSelectedTemplateId ? "selected" : ""}>${escapeHtml(t.title)} - ${escapeHtml(categoryName(t.category))}</option>`;
+  }).join("");
+}
+
+function selectAdminTemplate(id){
+  adminSelectedTemplateId = id;
+  liveAdminPreview();
+}
+
+function liveAdminPreview(){
+  const t = getTemplates().find(function(x){return x.id === adminSelectedTemplateId;}) || getTemplates()[0] || defaultTemplates[0];
+  const canvas = document.getElementById("adminCanvas");
+  if(canvas) drawCard(canvas,t,getAdminData());
+}
+
+function downloadAdminCard(){
+  const t = getTemplates().find(function(x){return x.id === adminSelectedTemplateId;}) || getTemplates()[0] || defaultTemplates[0];
+  const canvas = document.createElement("canvas");
+  drawCard(canvas,t,getAdminData());
+  downloadCanvas(canvas, cleanFileName(t.title + "-" + (getAdminData().name || "card")) + ".png");
+}
+
+function saveTemplate(e){
+  e.preventDefault();
+
+  const id = document.getElementById("templateId").value || ("custom_" + Date.now());
+  const item = {
+    id:id,
+    title:document.getElementById("templateTitle").value.trim(),
+    price:document.getElementById("templatePrice").value.trim(),
+    category:document.getElementById("templateCategory").value,
+    style:document.getElementById("templateStyle").value,
+    description:document.getElementById("templateDescription").value.trim()
+  };
+
+  let list = getTemplates();
+  const exists = list.some(function(t){return t.id === id;});
+
+  if(exists){
+    list = list.map(function(t){return t.id === id ? item : t;});
+    showToast("تم تعديل القالب");
+  }else{
+    list.unshift(item);
+    showToast("تم إضافة قالب جديد");
   }
 
-  async function renderHero(){
-    const templates = getTemplates();
-    const template = templates[0] || defaultTemplates[0];
-    await drawCard(document.getElementById("heroCanvas"), template, getCardData());
-  }
+  setTemplates(list);
+  adminSelectedTemplateId = id;
+  resetTemplateForm();
+  renderEverything();
+}
 
-  function setCategory(cat, el){
-    currentCategory = cat;
-    document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-    el.classList.add("active");
-    renderTemplates();
-  }
+function editTemplate(id){
+  const t = getTemplates().find(function(x){return x.id === id;});
+  if(!t) return;
 
-  function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({behavior:"smooth"});
-  }
+  document.getElementById("templateId").value = t.id;
+  document.getElementById("templateTitle").value = t.title;
+  document.getElementById("templatePrice").value = t.price;
+  document.getElementById("templateCategory").value = t.category;
+  document.getElementById("templateStyle").value = t.style;
+  document.getElementById("templateDescription").value = t.description;
 
-  function openModal(id){
-    document.getElementById(id).classList.add("show");
-  }
+  adminSelectedTemplateId = id;
+  renderAdminSelect();
+  liveAdminPreview();
+  document.getElementById("templateForm").scrollIntoView({behavior:"smooth"});
+}
 
-  function closeModal(id){
-    document.getElementById(id).classList.remove("show");
-  }
+function deleteTemplate(id){
+  if(!confirm("هل تريد حذف هذا القالب؟")) return;
 
-  function openAdminLogin(){
-    openModal("loginModal");
-  }
+  let list = getTemplates().filter(function(t){return t.id !== id;});
+  if(!list.length) list = defaultTemplates.slice();
 
-  function loginAdmin(){
-    const email = document.getElementById("adminEmail").value.trim();
-    const code = document.getElementById("adminCode").value.trim();
+  setTemplates(list);
+  adminSelectedTemplateId = list[0].id;
+  renderEverything();
+  showToast("تم حذف القالب");
+}
 
-    if(email.toLowerCase() === CONFIG.adminEmail.toLowerCase() && code === CONFIG.adminCode){
-      localStorage.setItem("ready_cards_admin", "yes");
-      closeModal("loginModal");
-      showAdmin();
-      showToast("تم دخول المدير بنجاح");
-      scrollToSection("adminPanel");
-    } else {
-      showToast("الإيميل أو الكود غير صحيح");
-    }
-  }
+function selectFromList(id){
+  adminSelectedTemplateId = id;
+  renderAdminSelect();
+  liveAdminPreview();
+  showToast("تم اختيار القالب");
+}
 
-  function checkAdmin(){
-    if(localStorage.getItem("ready_cards_admin") === "yes"){
-      showAdmin();
-    }
-  }
+function resetTemplateForm(){
+  document.getElementById("templateForm").reset();
+  document.getElementById("templateId").value = "";
+}
 
-  function logoutAdmin(){
-    localStorage.removeItem("ready_cards_admin");
-    document.getElementById("adminPanel").classList.remove("show");
-    showToast("تم الخروج من لوحة المدير");
-  }
+function renderAdminList(){
+  const list = document.getElementById("adminTemplateList");
+  const templates = getTemplates();
 
-  function showAdmin(){
-    document.getElementById("adminPanel").classList.add("show");
-    fillAdminData();
-    renderAdminSelects();
-    renderAdminTemplateList();
-    liveAdminPreview();
-  }
-
-  function fillAdminData(){
-    const d = getCardData();
-    document.getElementById("dataName").value = d.name || "";
-    document.getElementById("dataSpecialty").value = d.specialty || "";
-    document.getElementById("dataAddress").value = d.address || "";
-    document.getElementById("dataPhone").value = d.phone || "";
-    document.getElementById("dataEmail").value = d.email || "";
-    document.getElementById("dataWebsite").value = d.website || "";
-    document.getElementById("dataLogo").value = d.logo || "";
-    document.getElementById("dataNote").value = d.note || "";
-  }
-
-  function getAdminFormData(){
-    return {
-      name: document.getElementById("dataName").value.trim(),
-      specialty: document.getElementById("dataSpecialty").value.trim(),
-      address: document.getElementById("dataAddress").value.trim(),
-      phone: document.getElementById("dataPhone").value.trim(),
-      email: document.getElementById("dataEmail").value.trim(),
-      website: document.getElementById("dataWebsite").value.trim(),
-      logo: document.getElementById("dataLogo").value.trim(),
-      note: document.getElementById("dataNote").value.trim()
-    };
-  }
-
-  function saveAdminCardData(){
-    setCardData(getAdminFormData());
-    renderTemplates();
-    renderHero();
-    showToast("تم حفظ بيانات البطاقة");
-  }
-
-  function renderAdminSelects(){
-    const templates = getTemplates();
-    const select = document.getElementById("adminTemplateSelect");
-
-    if(!adminSelectedTemplateId && templates.length){
-      adminSelectedTemplateId = templates[0].id;
-    }
-
-    select.innerHTML = templates.map(t => `
-      <option value="${t.id}" ${t.id === adminSelectedTemplateId ? "selected" : ""}>
-        ${escapeHtml(t.title)} - ${escapeHtml(categoryName(t.category))}
-      </option>
-    `).join("");
-
-    renderPublicSelect();
-  }
-
-  function renderPublicSelect(selectedId){
-    const templates = getTemplates();
-    const select = document.getElementById("publicTemplateSelect");
-    select.innerHTML = templates.map(t => `
-      <option value="${t.id}" ${t.id === selectedId ? "selected" : ""}>
-        ${escapeHtml(t.title)}
-      </option>
-    `).join("");
-  }
-
-  function selectAdminTemplate(id){
-    adminSelectedTemplateId = id;
-    liveAdminPreview();
-  }
-
-  async function liveAdminPreview(){
-    const t = getTemplates().find(x => x.id === adminSelectedTemplateId) || getTemplates()[0];
-    if(!t) return;
-    await drawCard(document.getElementById("adminCanvas"), t, getAdminFormData());
-  }
-
-  function getPublicFormData(){
-    return {
-      name: document.getElementById("publicName").value.trim(),
-      specialty: document.getElementById("publicSpecialty").value.trim(),
-      address: document.getElementById("publicAddress").value.trim(),
-      phone: document.getElementById("publicPhone").value.trim(),
-      email: document.getElementById("publicEmail").value.trim(),
-      website: "",
-      logo: "",
-      note: document.getElementById("publicNote").value.trim()
-    };
-  }
-
-  function fillPublicData(){
-    const d = getCardData();
-    document.getElementById("publicName").value = d.name || "";
-    document.getElementById("publicSpecialty").value = d.specialty || "";
-    document.getElementById("publicAddress").value = d.address || "";
-    document.getElementById("publicPhone").value = d.phone || "";
-    document.getElementById("publicEmail").value = d.email || "";
-    document.getElementById("publicNote").value = d.note || "";
-  }
-
-  async function livePublicPreview(){
-    const id = document.getElementById("publicTemplateSelect").value;
-    const t = getTemplates().find(x => x.id === id) || getTemplates()[0];
-    if(!t) return;
-    await drawCard(document.getElementById("publicCanvas"), t, getPublicFormData());
-  }
-
-  async function openPublicCustomizer(templateId){
-    renderPublicSelect(templateId);
-    fillPublicData();
-    openModal("customModal");
-    await livePublicPreview();
-  }
-
-  async function quickDownload(templateId){
-    const t = getTemplates().find(x => x.id === templateId);
-    if(!t) return;
-    const canvas = document.createElement("canvas");
-    await drawCard(canvas, t, getCardData());
-    downloadCanvas(canvas, safeFileName(t.title) + ".png");
-  }
-
-  async function downloadAdminCard(){
-    const t = getTemplates().find(x => x.id === adminSelectedTemplateId) || getTemplates()[0];
-    if(!t) return;
-    const canvas = document.createElement("canvas");
-    await drawCard(canvas, t, getAdminFormData());
-    downloadCanvas(canvas, safeFileName(t.title + "-" + (getAdminFormData().name || "card")) + ".png");
-  }
-
-  async function downloadPublicCard(){
-    const id = document.getElementById("publicTemplateSelect").value;
-    const t = getTemplates().find(x => x.id === id);
-    if(!t) return;
-    const canvas = document.createElement("canvas");
-    await drawCard(canvas, t, getPublicFormData());
-    downloadCanvas(canvas, safeFileName(t.title + "-" + (getPublicFormData().name || "card")) + ".png");
-  }
-
-  function downloadCanvas(canvas, filename){
-    const a = document.createElement("a");
-    a.href = canvas.toDataURL("image/png");
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    showToast("تم تحميل البطاقة");
-  }
-
-  function safeFileName(name){
-    return String(name || "card").replace(/[\\/:*?"<>|]/g, "-").replace(/\s+/g, "-");
-  }
-
-  function saveTemplate(e){
-    e.preventDefault();
-
-    const id = document.getElementById("templateId").value || makeId();
-    const item = {
-      id,
-      title: document.getElementById("templateTitle").value.trim(),
-      price: document.getElementById("templatePrice").value.trim(),
-      category: document.getElementById("templateCategory").value,
-      style: document.getElementById("templateStyle").value,
-      description: document.getElementById("templateDescription").value.trim(),
-      background: document.getElementById("templateBackground").value.trim()
-    };
-
-    let templates = getTemplates();
-    const exists = templates.some(t => t.id === id);
-    if(exists){
-      templates = templates.map(t => t.id === id ? item : t);
-      showToast("تم تعديل القالب");
-    } else {
-      templates.unshift(item);
-      showToast("تم إضافة القالب");
-    }
-
-    setTemplates(templates);
-    adminSelectedTemplateId = id;
-    resetTemplateForm();
-    renderAdminSelects();
-    renderAdminTemplateList();
-    renderTemplates();
-    renderHero();
-    liveAdminPreview();
-  }
-
-  function editTemplate(id){
-    const t = getTemplates().find(x => x.id === id);
-    if(!t) return;
-
-    document.getElementById("templateId").value = t.id;
-    document.getElementById("templateTitle").value = t.title;
-    document.getElementById("templatePrice").value = t.price;
-    document.getElementById("templateCategory").value = t.category;
-    document.getElementById("templateStyle").value = t.style;
-    document.getElementById("templateDescription").value = t.description;
-    document.getElementById("templateBackground").value = t.background || "";
-    adminSelectedTemplateId = id;
-    renderAdminSelects();
-    liveAdminPreview();
-    document.getElementById("templateForm").scrollIntoView({behavior:"smooth"});
-  }
-
-  function deleteTemplate(id){
-    if(!confirm("هل تريد حذف هذا القالب؟")) return;
-    let templates = getTemplates().filter(t => t.id !== id);
-    setTemplates(templates);
-
-    if(adminSelectedTemplateId === id){
-      adminSelectedTemplateId = templates[0]?.id || null;
-    }
-
-    renderAdminSelects();
-    renderAdminTemplateList();
-    renderTemplates();
-    renderHero();
-    liveAdminPreview();
-    showToast("تم حذف القالب");
-  }
-
-  function resetTemplateForm(){
-    document.getElementById("templateForm").reset();
-    document.getElementById("templateId").value = "";
-  }
-
-  async function renderAdminTemplateList(){
-    const list = document.getElementById("adminTemplateList");
-    const templates = getTemplates();
-
-    if(!templates.length){
-      list.innerHTML = `<div class="empty">لا توجد قوالب.</div>`;
-      return;
-    }
-
-    list.innerHTML = templates.map(t => `
+  list.innerHTML = templates.map(function(t){
+    return `
       <div class="list-item">
         <canvas id="mini_${t.id}" class="mini" width="1050" height="600"></canvas>
         <div class="list-title">
@@ -2342,106 +1815,99 @@
           <button class="btn danger" onclick="deleteTemplate('${t.id}')">حذف</button>
         </div>
       </div>
-    `).join("");
+    `;
+  }).join("");
 
-    const data = getCardData();
-    for(const t of templates){
-      const c = document.getElementById("mini_" + t.id);
-      if(c) await drawCard(c, t, data);
-    }
-  }
+  const data = getCardData();
+  templates.forEach(function(t){
+    const canvas = document.getElementById("mini_" + t.id);
+    if(canvas) drawCard(canvas,t,data);
+  });
+}
 
-  function selectFromList(id){
-    adminSelectedTemplateId = id;
-    renderAdminSelects();
-    liveAdminPreview();
-    showToast("تم اختيار القالب");
-  }
+/* =========================
+   واتساب
+========================= */
+function sendAdminCardInfoWhatsApp(){
+  const t = getTemplates().find(function(x){return x.id === adminSelectedTemplateId;}) || defaultTemplates[0];
+  const d = getAdminData();
+  const msg =
+`السلام عليكم، هذه تفاصيل بطاقة:
 
-  function sendAdminCardInfoWhatsApp(){
-    const t = getTemplates().find(x => x.id === adminSelectedTemplateId) || getTemplates()[0];
-    const d = getAdminFormData();
-    const msg =
-`السلام عليكم، هذه تفاصيل بطاقة جاهزة:
+القالب: ${t.title}
+القسم: ${categoryName(t.category)}
+الاسم: ${d.name}
+التخصص / المناسبة: ${d.specialty}
+العنوان: ${d.address}
+الهاتف: ${d.phone}
+البريد: ${d.email}
+التاريخ: ${d.date}
+النص: ${d.note}`;
+  openWhatsApp(msg);
+}
 
-القالب: ${t ? t.title : ""}
-الاسم: ${d.name || ""}
-التخصص: ${d.specialty || ""}
-العنوان: ${d.address || ""}
-الهاتف: ${d.phone || ""}
-البريد: ${d.email || ""}`;
-    openWhatsApp(msg);
-  }
+function sendPublicOrderWhatsApp(){
+  const id = document.getElementById("publicTemplateSelect").value;
+  const t = getTemplates().find(function(x){return x.id === id;}) || defaultTemplates[0];
+  const d = getPublicData();
 
-  function sendPublicOrderWhatsApp(){
-    const id = document.getElementById("publicTemplateSelect").value;
-    const t = getTemplates().find(x => x.id === id);
-    const d = getPublicFormData();
-    const msg =
-`السلام عليكم، أريد طلب بطاقة من المتجر:
+  const msg =
+`السلام عليكم، أريد طلب بطاقة:
 
-القالب: ${t ? t.title : ""}
-السعر: ${t ? t.price : ""}
-الاسم: ${d.name || ""}
-التخصص: ${d.specialty || ""}
-العنوان: ${d.address || ""}
-الهاتف: ${d.phone || ""}
-البريد: ${d.email || ""}
-ملاحظة: ${d.note || ""}`;
-    openWhatsApp(msg);
-  }
+القالب: ${t.title}
+القسم: ${categoryName(t.category)}
+السعر: ${t.price}
+الاسم: ${d.name}
+التخصص / المناسبة: ${d.specialty}
+العنوان: ${d.address}
+الهاتف: ${d.phone}
+البريد: ${d.email}
+التاريخ: ${d.date}
+النص: ${d.note}`;
+  openWhatsApp(msg);
+}
 
-  function openWhatsAppGeneral(){
-    openWhatsApp("السلام عليكم، أريد تصميم بطاقة عمل أو بطاقة دعوة جاهزة للتحميل.");
-  }
+function openWhatsAppGeneral(){
+  openWhatsApp("السلام عليكم، أريد تصميم بطاقة جاهزة قابلة للتعديل.");
+}
 
-  function openWhatsApp(message){
-    window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
-  }
+function openWhatsApp(msg){
+  window.open("https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(msg), "_blank");
+}
 
-  function escapeHtml(text){
-    return String(text || "")
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
-  }
+/* =========================
+   واجهة عامة
+========================= */
+function scrollToSection(id){
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:"smooth"});
+}
 
-  function restoreDefaultTemplates(){
-    const current = getTemplates();
-    const currentTitles = new Set(current.map(t => t.title));
-    const missing = defaultTemplates.filter(t => !currentTitles.has(t.title));
-    if(!missing.length){
-      showToast("كل القوالب الجاهزة موجودة بالفعل");
-      return;
-    }
-    const merged = [...current, ...missing];
-    setTemplates(merged);
-    renderAdminSelects();
-    renderAdminTemplateList();
-    renderTemplates();
-    renderHero();
-    liveAdminPreview();
-    showToast("تمت إضافة القوالب الجاهزة");
-  }
+function openModal(id){
+  document.getElementById(id).classList.add("show");
+}
 
-  function showToast(text){
-    const t = document.getElementById("toast");
-    t.textContent = text;
-    t.classList.add("show");
-    setTimeout(() => t.classList.remove("show"), 2600);
-  }
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
+}
 
-  window.onclick = function(e){
-    document.querySelectorAll(".modal.show").forEach(m => {
-      if(e.target === m) m.classList.remove("show");
-    });
-  };
+function showToast(text){
+  const toast = document.getElementById("toast");
+  toast.textContent = text;
+  toast.classList.add("show");
+  setTimeout(function(){toast.classList.remove("show");},2500);
+}
 
-  renderTemplates();
-  renderHero();
+window.onclick = function(e){
+  document.querySelectorAll(".modal.show").forEach(function(m){
+    if(e.target === m) m.classList.remove("show");
+  });
+};
+
+window.addEventListener("load",function(){
+  renderEverything();
   checkAdmin();
+});
 </script>
 </body>
 </html>
